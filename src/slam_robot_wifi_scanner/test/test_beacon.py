@@ -58,3 +58,8 @@ def test_freq_to_channel():
     assert freq_to_channel(2484) == 14
     assert freq_to_channel(5180) == 36
     assert freq_to_channel(None) is None
+
+
+def test_tuned_channel_recorded_separately_from_ap_channel():
+    b = parse_beacon(make_beacon(ds_channel=8, freq=2437))
+    assert b.channel == 8 and b.tuned_channel == 6

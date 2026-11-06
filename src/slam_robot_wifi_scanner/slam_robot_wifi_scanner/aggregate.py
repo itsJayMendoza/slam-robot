@@ -49,14 +49,22 @@ def _std(xs: Sequence[float]) -> float:
     return statistics.stdev(xs) if len(xs) > 1 else 0.0
 
 
+def is_on_channel(r: Beacon) -> bool:
+    """True unless we know the adapter was tuned to a different channel than the AP's own.
+    Frames heard off-channel arrive attenuated and bias the average low."""
+    return r.tuned_channel is None or r.channel is None or r.tuned_channel == r.channel
+
+
 def aggregate(readings: Sequence[Beacon], min_rssi: float = -95.0,
-              mad_k: float = 3.0, min_dev_db: float = 5.0
-              ) -> Tuple[List[ApStats], List[bool]]:
-    """Group readings by BSSID. Returns (per-AP stats, rejected flag per input reading)."""
+              mad_k: float = 3.0, min_dev_db: float = 5.0,
+              on_channel_only: bool = False) -> Tuple[List[ApStats], List[bool]]:
+    """Group readings by BSSID. Returns (per-AP stats, rejected flag per input reading).
+
+    With on_channel_only, frames heard while tuned to another channel are rejected outright."""
     rejected = [True] * len(readings)
     groups = defaultdict(list)
     for i, r in enumerate(readings):
-        if r.rssi_dbm is not None:
+        if r.rssi_dbm is not None and (not on_channel_only or is_on_channel(r)):
             groups[r.bssid].append(i)
 
     stats: List[ApStats] = []

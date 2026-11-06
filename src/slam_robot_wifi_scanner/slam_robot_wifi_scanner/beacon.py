@@ -19,6 +19,7 @@ class Beacon:
     rssi_dbm: Optional[float]
     noise_dbm: Optional[float]      # None when the adapter reports no noise floor
     chan_util_pct: Optional[float]  # None when the AP sends no BSS Load IE
+    tuned_channel: Optional[int] = None  # channel the adapter was on when it heard the frame
 
 
 def freq_to_channel(mhz: Optional[int]) -> Optional[int]:
@@ -81,6 +82,7 @@ def parse_beacon(pkt, t_unix: Optional[float] = None) -> Optional[Beacon]:
             rssi_dbm=None if rssi is None else float(rssi),
             noise_dbm=None if noise is None else float(noise),
             chan_util_pct=chan_util,
+            tuned_channel=freq_to_channel(freq),
         )
     except Exception:  # malformed frame: skip it, never crash the capture thread
         return None

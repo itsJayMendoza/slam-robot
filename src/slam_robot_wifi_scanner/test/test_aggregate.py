@@ -1,5 +1,7 @@
 import math
 
+import pytest
+
 from slam_robot_wifi_scanner.aggregate import aggregate, keep_mask
 from slam_robot_wifi_scanner.beacon import Beacon
 
@@ -71,3 +73,28 @@ def test_stats_are_floats_even_for_integer_input():
     s = aggregate([beacon(-40), beacon(-41)])[0][0]
     for v in (s.rssi_mean, s.rssi_std, s.rssi_median, s.rssi_min, s.rssi_max):
         assert isinstance(v, float)
+
+
+def test_on_channel_only_drops_frames_heard_on_other_channels():
+    on = [Beacon(0.0, "aa", "Net", 8, r, None, None, 8) for r in (-38, -39, -38, -40)]
+    # Attenuated by 4-5 dB: inside the outlier filter's 5 dB dead band, so only the
+    # on-channel filter can remove them.
+    off = [Beacon(0.0, "aa", "Net", 8, -43, None, None, 3), Beacon(0.0, "aa", "Net", 8, -44, None, None, 11)]
+    readings = on + off
+    s_all = aggregate(readings)[0][0]
+    stats, rejected = aggregate(readings, on_channel_only=True)
+    s_on = stats[0]
+    assert s_on.n_samples == 4 and s_on.rssi_mean == pytest.approx(-38.75)
+    assert rejected == [False] * 4 + [True] * 2
+    assert s_all.n_samples == 6 and s_all.rssi_std > 2 * s_on.rssi_std
+
+
+def test_on_channel_only_keeps_frames_with_unknown_tuned_channel():
+    r = [Beacon(0.0, "aa", "Net", 8, -40, None, None, None)] * 3
+    assert aggregate(r, on_channel_only=True)[0][0].n_samples == 3
+
+
+def test_ap_only_heard_off_channel_is_absent_when_filtering():
+    r = [Beacon(0.0, "aa", "Net", 8, -90, None, None, 1)] * 3
+    assert aggregate(r)[0][0].n_samples == 3
+    assert aggregate(r, on_channel_only=True)[0] == []

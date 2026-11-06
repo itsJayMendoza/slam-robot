@@ -6,3 +6,4 @@ wifi_scanner:
     min_rssi_dbm: -95.0          # drop readings below this (receiver floor)
     mad_k: 3.0                   # outlier rejection strength
     min_dev_db: 5.0              # never reject readings closer than this to the median
+    on_channel_only: false       # keep only frames heard while tuned to the AP's channel

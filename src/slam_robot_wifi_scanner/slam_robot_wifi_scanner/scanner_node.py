@@ -24,6 +24,7 @@ class WifiScannerNode(Node):
         self.declare_parameter("min_rssi_dbm", -95.0)
         self.declare_parameter("mad_k", 3.0)
         self.declare_parameter("min_dev_db", 5.0)
+        self.declare_parameter("on_channel_only", False)
 
         p = self.get_parameter
         self.scanner = LiveScanner(p("interface").value,
@@ -53,7 +54,8 @@ class WifiScannerNode(Node):
         readings = collector.stop()
 
         stats, rejected = aggregate(readings, p("min_rssi_dbm").value,
-                                    p("mad_k").value, p("min_dev_db").value)
+                                    p("mad_k").value, p("min_dev_db").value,
+                                    p("on_channel_only").value)
         result.aps = [self._ap_msg(s) for s in stats]
         result.raw = [self._raw_msg(r, rej) for r, rej in zip(readings, rejected)]
         result.success = bool(stats)
