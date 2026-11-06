@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="room">
+    <physics name="1ms" type="ignored"><max_step_size>0.004</max_step_size><real_time_factor>1.0</real_time_factor></physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <light type="directional" name="sun"><direction>-0.5 0.1 -0.9</direction><diffuse>1 1 1 1</diffuse></light>
+    <model name="ground"><static>true</static><link name="l">
+      <collision name="c"><geometry><plane><normal>0 0 1</normal><size>30 30</size></plane></geometry></collision>
+      <visual name="v"><geometry><plane><normal>0 0 1</normal><size>30 30</size></plane></geometry><material><ambient>0.7 0.7 0.7 1</ambient></material></visual></link></model>
+    <!-- 8x8 room walls -->
+    <model name="walls"><static>true</static>
+      <link name="n"><pose>0 4 0.5 0 0 0</pose><collision name="c"><geometry><box><size>8 0.1 1</size></box></geometry></collision><visual name="v"><geometry><box><size>8 0.1 1</size></box></geometry></visual></link>
+      <link name="s"><pose>0 -4 0.5 0 0 0</pose><collision name="c"><geometry><box><size>8 0.1 1</size></box></geometry></collision><visual name="v"><geometry><box><size>8 0.1 1</size></box></geometry></visual></link>
+      <link name="e"><pose>4 0 0.5 0 0 0</pose><collision name="c"><geometry><box><size>0.1 8 1</size></box></geometry></collision><visual name="v"><geometry><box><size>0.1 8 1</size></box></geometry></visual></link>
+      <link name="w"><pose>-4 0 0.5 0 0 0</pose><collision name="c"><geometry><box><size>0.1 8 1</size></box></geometry></collision><visual name="v"><geometry><box><size>0.1 8 1</size></box></geometry></visual></link>
+      <link name="o1"><pose>1.5 1 0.5 0 0 0</pose><collision name="c"><geometry><box><size>1 1 1</size></box></geometry></collision><visual name="v"><geometry><box><size>1 1 1</size></box></geometry></visual></link>
+      <link name="o2"><pose>-1.5 -1.5 0.5 0 0 0</pose><collision name="c"><geometry><cylinder><radius>0.4</radius><length>1</length></cylinder></geometry></collision><visual name="v"><geometry><cylinder><radius>0.4</radius><length>1</length></cylinder></geometry></visual></link>
+    </model>
+  </world>
+</sdf>

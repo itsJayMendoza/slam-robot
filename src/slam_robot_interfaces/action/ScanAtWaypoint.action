@@ -1,0 +1,12 @@
+# Goal
+float32 dwell_s
+---
+# Result
+bool success
+string message
+slam_robot_interfaces/ApReading[] aps
+slam_robot_interfaces/RawReading[] raw
+---
+# Feedback
+float32 elapsed_s
+uint32 frames

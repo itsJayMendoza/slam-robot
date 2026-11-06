@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>slam_robot_wifi_scanner</name>
+  <version>0.1.0</version>
+  <description>Passive monitor-mode 2.4 GHz scanner with a ScanAtWaypoint action</description>
+  <maintainer email="cjay.m.mendoza@gmail.com">shichiro</maintainer>
+  <license>MIT</license>
+  <depend>rclpy</depend>
+  <depend>slam_robot_interfaces</depend>
+  <exec_depend>python3-scapy</exec_depend>
+  <test_depend>python3-pytest</test_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>

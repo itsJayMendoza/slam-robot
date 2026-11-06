@@ -1,0 +1,8 @@
+wifi_scanner:
+  ros__parameters:
+    interface: wlx60156f273357   # the T3U Plus; never the Pi's wlan0
+    channels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    channel_dwell_s: 0.2         # >= one beacon interval (~102.4 ms)
+    min_rssi_dbm: -95.0          # drop readings below this (receiver floor)
+    mad_k: 3.0                   # outlier rejection strength
+    min_dev_db: 5.0              # never reject readings closer than this to the median
