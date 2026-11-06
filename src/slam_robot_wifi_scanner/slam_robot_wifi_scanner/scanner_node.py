@@ -24,12 +24,17 @@ class WifiScannerNode(Node):
         self.declare_parameter("min_rssi_dbm", -95.0)
         self.declare_parameter("mad_k", 3.0)
         self.declare_parameter("min_dev_db", 5.0)
-        self.declare_parameter("on_channel_only", False)
+        self.declare_parameter("on_channel_only", True)
+        self.declare_parameter("min_samples", 3)
+        self.declare_parameter("adaptive_hopping", True)
+        self.declare_parameter("rediscover_s", 10.0)
+        self.declare_parameter("channel_max_age_s", 30.0)
 
         p = self.get_parameter
         self.scanner = LiveScanner(p("interface").value,
                                    [int(c) for c in p("channels").value],
-                                   p("channel_dwell_s").value)
+                                   p("channel_dwell_s").value, p("adaptive_hopping").value,
+                                   p("rediscover_s").value, p("channel_max_age_s").value)
         self.scanner.start()
         self._server = ActionServer(self, ScanAtWaypoint, "scan_at_waypoint", self._execute)
         self.get_logger().info(f"Scanning on {p('interface').value}; action: scan_at_waypoint")
@@ -55,7 +60,7 @@ class WifiScannerNode(Node):
 
         stats, rejected = aggregate(readings, p("min_rssi_dbm").value,
                                     p("mad_k").value, p("min_dev_db").value,
-                                    p("on_channel_only").value)
+                                    p("on_channel_only").value, int(p("min_samples").value))
         result.aps = [self._ap_msg(s) for s in stats]
         result.raw = [self._raw_msg(r, rej) for r, rej in zip(readings, rejected)]
         result.success = bool(stats)
@@ -68,7 +73,7 @@ class WifiScannerNode(Node):
     def _ap_msg(s):
         m = ApReading()
         m.bssid, m.ssid, m.channel = s.bssid, s.ssid, int(s.channel or 0)
-        m.n_samples, m.n_rejected = s.n_samples, s.n_rejected
+        m.n_samples, m.n_rejected, m.low_confidence = s.n_samples, s.n_rejected, s.low_confidence
         m.rssi_mean, m.rssi_std, m.rssi_median = s.rssi_mean, s.rssi_std, s.rssi_median
         m.rssi_min, m.rssi_max = s.rssi_min, s.rssi_max
         m.noise_valid, m.noise_mean, m.noise_std = s.noise_valid, s.noise_mean, s.noise_std

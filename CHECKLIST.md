@@ -23,7 +23,10 @@ Last updated: 2026-11-06.
 - [x] Noise floor: radiotap has no noise field, so SNR is not measurable (noise_valid=false, SNR left empty)
 - [x] Wireshark tools fail on this Pi (dumpcap permission error); scapy and tcpdump work instead
 - [~] `slam_robot_wifi_scanner` (parser, outlier filter, averaging, channel hopper, action server, CLI): 18 tests pass
-- [ ] Run the scanner CLI on the Pi with the real adapter; confirm Yumi 2.4G and the other APs appear across channels 1-13
+- [x] Scanner CLI run on the Pi with the real adapter: 8 APs found, Yumi 2.4G on channel 11, BSS Load present on all APs (strong routers report 0%)
+- [x] Found: frames heard while tuned to another channel bias the mean low (up to 4 dB) and inflate std; on-channel filter fixes it but cuts samples about 5x
+- [~] Adaptive hopping + on-channel filter default + low-confidence flag: written, 87 tests pass, action server verified with a fake adapter; not yet run on the Pi
+- [ ] Repeatability: 3 back-to-back scans without moving anything; on-channel means should agree within a couple of dB
 - [ ] Check which APs broadcast the BSS Load IE (channel utilization)
 - [ ] Noise-floor test in several rooms (confirm the field is always absent)
 - [ ] Monitor-mode setup at boot (systemd unit; never touch `wlan0`)

@@ -15,6 +15,7 @@ class ApStats:
     channel: Optional[int]
     n_samples: int
     n_rejected: int
+    low_confidence: bool
     rssi_mean: float
     rssi_std: float
     rssi_median: float
@@ -57,10 +58,12 @@ def is_on_channel(r: Beacon) -> bool:
 
 def aggregate(readings: Sequence[Beacon], min_rssi: float = -95.0,
               mad_k: float = 3.0, min_dev_db: float = 5.0,
-              on_channel_only: bool = False) -> Tuple[List[ApStats], List[bool]]:
+              on_channel_only: bool = False,
+              min_samples: int = 3) -> Tuple[List[ApStats], List[bool]]:
     """Group readings by BSSID. Returns (per-AP stats, rejected flag per input reading).
 
-    With on_channel_only, frames heard while tuned to another channel are rejected outright."""
+    With on_channel_only, frames heard while tuned to another channel are rejected outright.
+    An AP with fewer than min_samples kept readings is flagged low_confidence."""
     rejected = [True] * len(readings)
     groups = defaultdict(list)
     for i, r in enumerate(readings):
@@ -92,6 +95,7 @@ def aggregate(readings: Sequence[Beacon], min_rssi: float = -95.0,
             channel=Counter(channels).most_common(1)[0][0] if channels else None,
             n_samples=len(kept),
             n_rejected=len(idx) - len(kept),
+            low_confidence=len(kept) < min_samples,
             rssi_mean=statistics.fmean(kept_rssi),
             rssi_std=_std(kept_rssi),
             rssi_median=statistics.median(kept_rssi),

@@ -3,7 +3,8 @@ string bssid
 string ssid
 uint8 channel            # 0 = unknown
 uint32 n_samples         # beacons kept
-uint32 n_rejected        # beacons dropped as outliers
+uint32 n_rejected        # outliers dropped (frames heard off-channel are excluded before this count)
+bool low_confidence      # too few samples for the mean and std to be trusted
 float32 rssi_mean
 float32 rssi_std
 float32 rssi_median

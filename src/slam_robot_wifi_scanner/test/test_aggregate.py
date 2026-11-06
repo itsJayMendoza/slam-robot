@@ -98,3 +98,10 @@ def test_ap_only_heard_off_channel_is_absent_when_filtering():
     r = [Beacon(0.0, "aa", "Net", 8, -90, None, None, 1)] * 3
     assert aggregate(r)[0][0].n_samples == 3
     assert aggregate(r, on_channel_only=True)[0] == []
+
+
+def test_low_confidence_flag():
+    few = aggregate([beacon(-40), beacon(-41)])[0][0]
+    enough = aggregate([beacon(-40), beacon(-41), beacon(-40)])[0][0]
+    assert few.low_confidence is True and enough.low_confidence is False
+    assert aggregate([beacon(-40), beacon(-41)], min_samples=2)[0][0].low_confidence is False

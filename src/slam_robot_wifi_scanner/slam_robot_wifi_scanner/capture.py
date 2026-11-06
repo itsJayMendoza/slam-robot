@@ -2,7 +2,7 @@
 import subprocess
 import threading
 import time
-from typing import List, Sequence
+from typing import Callable, Dict, List, Optional, Sequence, Set
 
 from .beacon import Beacon, parse_beacon
 
@@ -14,6 +14,7 @@ class Collector:
         self._lock = threading.Lock()
         self._items: List[Beacon] = []
         self._recording = False
+        self._seen: Dict[int, float] = {}
 
     def start(self):
         with self._lock:
@@ -35,21 +36,50 @@ class Collector:
         if b is None:
             return
         with self._lock:
+            if b.channel:                       # remember where APs live, even when not recording
+                self._seen[b.channel] = time.monotonic()
             if self._recording:
                 self._items.append(b)
 
+    def channels_seen(self, max_age_s: float) -> Set[int]:
+        """Channels on which an AP has announced itself within the last max_age_s seconds."""
+        cutoff = time.monotonic() - max_age_s
+        with self._lock:
+            return {c for c, t in self._seen.items() if t >= cutoff}
+
+
+def plan_channels(all_channels: Sequence[int], seen: Set[int], full_sweep: bool) -> List[int]:
+    """Channels to visit this round: all of them for a discovery sweep, otherwise only those
+    where an AP was recently heard (falling back to all if none were)."""
+    if full_sweep:
+        return list(all_channels)
+    active = [c for c in all_channels if c in seen]
+    return active or list(all_channels)
+
 
 class ChannelHopper(threading.Thread):
-    """Cycles the adapter through channels with `iw dev <if> set channel N` (needs root)."""
+    """Cycles the adapter through channels with `iw dev <if> set channel N` (needs root).
 
-    def __init__(self, iface: str, channels: Sequence[int], dwell_s: float = 0.2):
+    With active_fn (adaptive mode) it does a full discovery sweep every rediscover_s seconds and
+    otherwise visits only channels that active_fn() reports, so each real AP gets several
+    times more on-channel beacons than a blind sweep of all 13 channels would give."""
+
+    def __init__(self, iface: str, channels: Sequence[int], dwell_s: float = 0.2,
+                 active_fn: Optional[Callable[[], Set[int]]] = None, rediscover_s: float = 10.0):
         super().__init__(daemon=True)
         self.iface, self.channels, self.dwell_s = iface, list(channels), dwell_s
+        self.active_fn, self.rediscover_s = active_fn, rediscover_s
         self._stop_evt = threading.Event()
 
     def run(self):
+        last_full = float("-inf")
         while not self._stop_evt.is_set():
-            for ch in self.channels:
+            now = time.monotonic()
+            full = self.active_fn is None or now - last_full >= self.rediscover_s
+            if full:
+                last_full = now
+            seen = self.active_fn() if self.active_fn else set()
+            for ch in plan_channels(self.channels, seen, full):
                 if self._stop_evt.is_set():
                     return
                 subprocess.run(["iw", "dev", self.iface, "set", "channel", str(ch)],
@@ -72,10 +102,12 @@ def set_monitor_mode(iface: str, channel: int = 6):
 class LiveScanner:
     """Owns the sniffer and hopper for the lifetime of the node."""
 
-    def __init__(self, iface: str, channels: Sequence[int], channel_dwell_s: float):
+    def __init__(self, iface: str, channels: Sequence[int], channel_dwell_s: float,
+                 adaptive: bool = True, rediscover_s: float = 10.0, max_age_s: float = 30.0):
         from scapy.sendrecv import AsyncSniffer  # imported lazily: needs root + scapy
         self.collector = Collector()
-        self.hopper = ChannelHopper(iface, channels, channel_dwell_s)
+        active = (lambda: self.collector.channels_seen(max_age_s)) if adaptive else None
+        self.hopper = ChannelHopper(iface, channels, channel_dwell_s, active, rediscover_s)
         self._sniffer = AsyncSniffer(iface=iface, prn=self.collector.on_packet, store=False)
 
     def start(self):
