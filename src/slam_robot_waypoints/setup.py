@@ -20,6 +20,7 @@ setup(
     entry_points={
         "console_scripts": [
             "generate_waypoints = slam_robot_waypoints.cli:main",
+            "make_room_map = slam_robot_waypoints.room_map:main",
         ],
     },
 )

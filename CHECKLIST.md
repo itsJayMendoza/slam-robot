@@ -26,6 +26,9 @@ Last updated: 2026-11-06.
 - [x] Scanner CLI run on the Pi with the real adapter: 8 APs found, Yumi 2.4G on channel 11, BSS Load present on all APs (strong routers report 0%)
 - [x] Found: frames heard while tuned to another channel bias the mean low (up to 4 dB) and inflate std; on-channel filter fixes it but cuts samples about 5x
 - [~] Adaptive hopping + on-channel filter default + low-confidence flag: written, 87 tests pass, action server verified with a fake adapter; not yet run on the Pi
+- [x] Channels 12 and 13 are disabled by the T3U driver (the kernel lists them as `(disabled)`). Tried `rtw_country_code` PH and GB and `iw reg set GB`; none helped. The scanner covers channels 1-11, skips 12/13 and reports them as unavailable in each scan result
+- [ ] Document the 1-11 limit; check once (phone app or another adapter) whether the surveyed building has any AP on channel 12 or 13
+- [~] Hand-carried walk test: `walk_survey` (guided stop-and-scan, writes records.json / waypoints.json / notification.json per the client's T1 format, one record per beacon, with encryption), `make_room_map` (room size -> map.yaml/.pgm); 104 tests pass; not yet run on the Pi
 - [ ] Repeatability: 3 back-to-back scans without moving anything; on-channel means should agree within a couple of dB
 - [ ] Check which APs broadcast the BSS Load IE (channel utilization)
 - [ ] Noise-floor test in several rooms (confirm the field is always absent)

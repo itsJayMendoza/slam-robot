@@ -66,6 +66,9 @@ class WifiScannerNode(Node):
         result.success = bool(stats)
         result.message = (f"{len(readings)} beacons, {sum(rejected)} rejected, {len(stats)} APs"
                           if stats else "no beacons received")
+        unsupported = sorted(self.scanner.hopper.unsupported)
+        if unsupported:
+            result.message += f"; channels the adapter cannot tune to (not scanned): {unsupported}"
         goal_handle.succeed()
         return result
 

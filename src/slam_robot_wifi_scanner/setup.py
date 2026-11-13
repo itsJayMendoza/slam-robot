@@ -22,6 +22,7 @@ setup(
         "console_scripts": [
             "scanner_node = slam_robot_wifi_scanner.scanner_node:main",
             "wifi_scan_cli = slam_robot_wifi_scanner.cli:main",
+            "walk_survey = slam_robot_wifi_scanner.walk_survey:main",
         ],
     },
 )

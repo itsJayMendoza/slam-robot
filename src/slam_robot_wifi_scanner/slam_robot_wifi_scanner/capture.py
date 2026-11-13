@@ -69,7 +69,23 @@ class ChannelHopper(threading.Thread):
         super().__init__(daemon=True)
         self.iface, self.channels, self.dwell_s = iface, list(channels), dwell_s
         self.active_fn, self.rediscover_s = active_fn, rediscover_s
+        self.unsupported: Set[int] = set()   # channels the adapter refused to tune to
+        self._failures: Dict[int, int] = {}
         self._stop_evt = threading.Event()
+
+    def _tune(self, ch: int) -> bool:
+        """Tune to ch. A channel that fails twice in a row (for example 'Channel is disabled'
+        under the driver's regulatory plan) is dropped, instead of the adapter silently
+        staying on the previous channel and over-counting it."""
+        r = subprocess.run(["iw", "dev", self.iface, "set", "channel", str(ch)],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if r.returncode == 0:
+            self._failures[ch] = 0
+            return True
+        self._failures[ch] = self._failures.get(ch, 0) + 1
+        if self._failures[ch] >= 2:
+            self.unsupported.add(ch)
+        return False
 
     def run(self):
         last_full = float("-inf")
@@ -79,12 +95,16 @@ class ChannelHopper(threading.Thread):
             if full:
                 last_full = now
             seen = self.active_fn() if self.active_fn else set()
-            for ch in plan_channels(self.channels, seen, full):
+            usable = [c for c in self.channels if c not in self.unsupported] or self.channels
+            visited = False
+            for ch in plan_channels(usable, seen, full):
                 if self._stop_evt.is_set():
                     return
-                subprocess.run(["iw", "dev", self.iface, "set", "channel", str(ch)],
-                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                self._stop_evt.wait(self.dwell_s)
+                if self._tune(ch):
+                    visited = True
+                    self._stop_evt.wait(self.dwell_s)
+            if not visited:                      # nothing tunable (adapter gone?): back off
+                self._stop_evt.wait(max(self.dwell_s, 1.0))
 
     def stop(self):
         self._stop_evt.set()

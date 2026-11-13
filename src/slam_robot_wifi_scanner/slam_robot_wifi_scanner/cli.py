@@ -4,6 +4,7 @@ Prints each AP twice ('?' marks too few samples to trust): using every beacon, a
 AP's own channel, so the effect of the on-channel filter on the spread is visible.
 """
 import argparse
+import csv
 
 from .aggregate import aggregate
 from .capture import LiveScanner, set_monitor_mode
@@ -15,6 +16,18 @@ def _cell(s):
     return f"{s.n_samples:3d} {s.rssi_mean:6.1f} {s.rssi_std:4.1f}{'?' if s.low_confidence else ' '}"
 
 
+def write_raw_csv(path, readings, rejected_all, rejected_on):
+    """One row per beacon; rejected_* say whether each filter mode dropped it."""
+    with open(path, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["t_unix", "bssid", "ssid", "ap_channel", "tuned_channel", "rssi_dbm",
+                    "noise_dbm", "chan_util_pct", "rejected_all_frames", "rejected_on_channel"])
+        for r, ra, ro in zip(readings, rejected_all, rejected_on):
+            w.writerow([f"{r.t_unix:.3f}", r.bssid, r.ssid, r.channel, r.tuned_channel, r.rssi_dbm,
+                        "" if r.noise_dbm is None else r.noise_dbm,
+                        "" if r.chan_util_pct is None else f"{r.chan_util_pct:.1f}", int(ra), int(ro)])
+
+
 def main():
     ap = argparse.ArgumentParser(description="One passive WiFi scan, printed as a table")
     ap.add_argument("--iface", required=True)
@@ -22,6 +35,7 @@ def main():
     ap.add_argument("--channel-dwell", type=float, default=0.2)
     ap.add_argument("--monitor", action="store_true", help="put the interface in monitor mode first")
     ap.add_argument("--min-rssi", type=float, default=-95.0)
+    ap.add_argument("--raw-csv", help="write every individual beacon to this CSV (to inspect distributions)")
     ap.add_argument("--all-channels", action="store_true", help="blind 13-channel sweep (no adaptive hopping)")
     args = ap.parse_args()
 
@@ -36,6 +50,8 @@ def main():
 
     all_stats, rej_all = aggregate(readings, min_rssi=args.min_rssi)
     on_stats, rej_on = aggregate(readings, min_rssi=args.min_rssi, on_channel_only=True)
+    if args.raw_csv:
+        write_raw_csv(args.raw_csv, readings, rej_all, rej_on)
     on = {s.bssid: s for s in on_stats}
     print(f"{len(readings)} beacons; rejected {sum(rej_all)} (all frames) / {sum(rej_on)} "
           f"(on-channel only); noise reported: {any(r.noise_dbm is not None for r in readings)}")
