@@ -1,10 +1,5 @@
 # Session 001: hand-carried walk test
 
-First real survey session, recorded on 2026-11-13 at 11:59 (UTC+8) to test the whole chain,
-from scanning on the Raspberry Pi to the interpolated heatmap, before the robot drives.
-The robot's only job in a survey is to stop at a spot and report where it is, so here a person
-carried the scanner to marked spots instead.
-
 ![Heatmap preview](processed/preview_heatmap.png)
 
 ## Setup
@@ -51,23 +46,6 @@ carried the scanner to marked spots instead.
   The spread at every spot is within 3 dB.
 - **All-networks view:** a neighbouring network (GiannaAizelle) is the strongest at 4 of the 5
   spots; Yumi 2.4G is strongest at WP-2.
-
-## Notes
-
-- **Off-channel frames.** About half the raw frames were heard while the adapter was tuned to a
-  neighbouring channel. Those read low (at WP-5, Yumi's median over all frames is -54 dBm against
-  -46 dBm on-channel), so cleaning rejects them.
-- **The -239 dBm value** is not a real reading: the adapter reports it as a fixed value, almost
-  always for the strongest network. Cleaning treats it as a placeholder.
-- **Readings below -100 dBm** (18 kept) were decoded successfully, which suggests the adapter's
-  RSSI scale reads lower than the true signal. A one-time comparison against a reference meter would
-  give the offset; until then absolute values, and so pass/fail against -67 dBm, carry that
-  uncertainty.
-- **Extrapolation.** Five spots on one line cannot describe the sides of the room; cells more than
-  0.8 m from a measured spot are faded and hatched in the heatmap. The robot's grid survey covers
-  the whole floor.
-- **Not measured by this adapter:** channels 12-13 (disabled by the driver) and the noise floor
-  (no noise field in its frames), so SNR is not available.
 
 ## Reproduce
 
