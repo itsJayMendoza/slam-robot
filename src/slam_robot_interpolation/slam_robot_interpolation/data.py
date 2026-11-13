@@ -23,7 +23,7 @@ def samples(rows: List[Dict[str, str]], metric: str = "rssi_mean", bssid: Option
     """(xy, values, waypoint_ids) for one metric.
 
     bssid / ssid filter the rows. With strongest=True, keep only the strongest-RSSI AP at each
-    waypoint (what a client at that spot would connect to). Rows where the metric is empty or
+    waypoint (what a device at that spot would connect to). Rows where the metric is empty or
     NaN (for example SNR when no noise floor was measured) are dropped, never filled in."""
     sel = [r for r in rows
            if (bssid is None or r["bssid"].lower() == bssid.lower())

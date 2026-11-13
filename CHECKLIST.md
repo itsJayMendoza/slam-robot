@@ -28,15 +28,15 @@ Last updated: 2026-11-06.
 - [~] Adaptive hopping + on-channel filter default + low-confidence flag: written, 87 tests pass, action server verified with a fake adapter; not yet run on the Pi
 - [x] Channels 12 and 13 are disabled by the T3U driver (the kernel lists them as `(disabled)`). Tried `rtw_country_code` PH and GB and `iw reg set GB`; none helped. The scanner covers channels 1-11, skips 12/13 and reports them as unavailable in each scan result
 - [ ] Document the 1-11 limit; check once (phone app or another adapter) whether the surveyed building has any AP on channel 12 or 13
-- [~] Hand-carried walk test: `walk_survey` (guided stop-and-scan, writes records.json / waypoints.json / notification.json per the client's T1 format, one record per beacon, with encryption), `make_room_map` (room size -> map.yaml/.pgm); 104 tests pass; not yet run on the Pi
+- [x] Hand-carried walk test (session 001, 5 spots, data and heatmap in `data/sessions/001`): `walk_survey` (guided stop-and-scan, writes records.json / waypoints.json / notification.json per the T1 format, one record per beacon, with encryption), `make_room_map` (room size -> map.yaml/.pgm); run on the Pi on 2026-11-13
 - [ ] Repeatability: 3 back-to-back scans without moving anything; on-channel means should agree within a couple of dB
 - [ ] Check which APs broadcast the BSS Load IE (channel utilization)
 - [ ] Noise-floor test in several rooms (confirm the field is always absent)
 - [ ] Monitor-mode setup at boot (systemd unit; never touch `wlan0`)
 - [ ] udev rule: no USB autosuspend for the T3U (and later the LiDAR and ESP32)
 - [ ] Antenna mast at 0.7-1.2 m, USB 2.0 extension cable, antenna orientation fixed
-- [ ] Optional, client's choice: RTL-SDR as a separate noise-floor sensor
-- [ ] Tell the client: noise floor and SNR are a documented limitation
+- [ ] Optional: RTL-SDR as a separate noise-floor sensor
+- [ ] Document noise floor and SNR as a limitation
 
 ## 3. Chassis, power, electronics
 - [ ] Assemble chassis, JGA25-360 motors, ball caster, second deck
@@ -62,7 +62,7 @@ Last updated: 2026-11-06.
 - [ ] EKF (`robot_localization`) fusing odometry and IMU
 - [ ] `slam_toolbox` mapping run, map saved
 - [ ] Experiment 1 targets: wall RMSE at most 0.10 m, overlap at least 85%
-- [ ] Tell the client the X3 is the LiDAR used (the thesis names the LD06)
+- [ ] Document that the X3 is the LiDAR used (the thesis text names the LD06)
 
 ## 6. Navigation
 - [ ] Nav2 tuned for a small differential robot at low speed
@@ -82,7 +82,7 @@ Last updated: 2026-11-06.
 ## 8. Post-processing
 - [~] `slam_robot_interpolation` (IDW, Ordinary Kriging, variance, holdout, k-fold, thinning, metrics, per-AP table, gap finder): 34 tests pass
 - [ ] Heatmap PNG rendering overlaid on the floor plan (RSSI, SNR where valid, noise where valid, Kriging variance)
-- [~] `slam_robot_postprocess`: the client's T1 pipeline, phases A-D (session checks, untouched raw copy, cleaning with per-reason counts incl. off-channel and the adapter's -239 placeholder, median merge, per-SSID sets, grid from map.yaml, IDW, Kriging with min-points/fail handling, all-networks view, T1 JSON outputs); 26 tests incl. the client's worked example reproduced exactly; run on the first real walk (session 001). Not yet: HTTP transfer + 3-attempt retry
+- [~] `slam_robot_postprocess`: the T1 post-processing pipeline, phases A-D (session checks, untouched raw copy, cleaning with per-reason counts incl. off-channel and the adapter's -239 placeholder, median merge, per-SSID sets, grid from map.yaml, IDW, Kriging with min-points/fail handling, all-networks view, T1 JSON outputs); 26 tests incl. the T1 worked example reproduced exactly; run on the first real walk (session 001). Not yet: HTTP transfer + 3-attempt retry
 - [ ] Coverage gap report as a deliverable (document or CSV), with measured vs interpolated
 - [ ] Threshold values configurable (RSSI -67 dBm, SNR 20 dB; the thesis lit review's 25 dB noted)
 - [ ] Run on real data

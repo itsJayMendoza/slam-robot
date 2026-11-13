@@ -17,5 +17,8 @@ setup(
     description="Survey post-processing pipeline",
     license="MIT",
     tests_require=["pytest"],
-    entry_points={"console_scripts": ["postprocess = slam_robot_postprocess.pipeline:main"]},
+    entry_points={"console_scripts": [
+        "postprocess = slam_robot_postprocess.pipeline:main",
+        "heatmap_preview = slam_robot_postprocess.preview:main",
+    ]},
 )

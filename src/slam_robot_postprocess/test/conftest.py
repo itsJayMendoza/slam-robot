@@ -8,7 +8,7 @@ A, B = "AA:BB:CC:11:22:33", "AA:BB:CC:77:88:99"
 G, I = "CC:DD:EE:44:55:66", "11:22:33:44:55:66"
 NET = {A: ("CORP-WIFI", 6), B: ("CORP-WIFI", 11), G: ("GUEST-NET", 1), I: ("IoT-DEVICES", 11)}
 
-# The client's worked example (T1 post-processing PDF, pages 5-6): (time, waypoint, x, y, heading,
+# The T1 worked example (post-processing document, pages 5-6): (time, waypoint, x, y, heading,
 # [(bssid, rssi), ...]). WP-07/08/09 are waypoint IDs 7/8/9.
 SCANS = [
     (456.3, 7, 2.05, 1.78, 90.1, [(A, -56), (B, -67), (G, -79), (I, 0)]),

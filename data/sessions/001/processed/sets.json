@@ -1,0 +1,389 @@
+{
+ "Akhies29 2.4G": [
+  {
+   "waypoint_id": 1,
+   "x": 1.55,
+   "y": 0.5,
+   "rssi": -61.5,
+   "best_bssid": "48:2C:D0:79:22:EC"
+  },
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -60.0,
+   "best_bssid": "48:2C:D0:79:22:EC"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -68.0,
+   "best_bssid": "48:2C:D0:79:22:EC"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -58.0,
+   "best_bssid": "48:2C:D0:79:22:EC"
+  },
+  {
+   "waypoint_id": 5,
+   "x": 1.55,
+   "y": 2.5,
+   "rssi": -60.5,
+   "best_bssid": "48:2C:D0:79:22:EC"
+  }
+ ],
+ "Asiel2021 wifi": [
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -90.0,
+   "best_bssid": "84:3C:99:5A:E9:5B"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -92.5,
+   "best_bssid": "84:3C:99:5A:E9:5B"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -93.0,
+   "best_bssid": "84:3C:99:5A:E9:5B"
+  },
+  {
+   "waypoint_id": 5,
+   "x": 1.55,
+   "y": 2.5,
+   "rssi": -111.5,
+   "best_bssid": "84:3C:99:5A:E9:5B"
+  }
+ ],
+ "GiannaAizelle": [
+  {
+   "waypoint_id": 1,
+   "x": 1.55,
+   "y": 0.5,
+   "rssi": -34.5,
+   "best_bssid": "84:3C:99:10:78:3A"
+  },
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -41.0,
+   "best_bssid": "84:3C:99:10:78:3A"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -33.0,
+   "best_bssid": "84:3C:99:10:78:3A"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -33.0,
+   "best_bssid": "84:3C:99:10:78:3A"
+  },
+  {
+   "waypoint_id": 5,
+   "x": 1.55,
+   "y": 2.5,
+   "rssi": -31.0,
+   "best_bssid": "84:3C:99:10:78:3A"
+  }
+ ],
+ "Jaydon 2.4G": [
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -113.0,
+   "best_bssid": "F4:B7:8D:34:11:F0"
+  }
+ ],
+ "Jesuslovesyou 2.4G": [
+  {
+   "waypoint_id": 1,
+   "x": 1.55,
+   "y": 0.5,
+   "rssi": -87.0,
+   "best_bssid": "80:F1:A8:36:4F:43"
+  },
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -86.5,
+   "best_bssid": "80:F1:A8:36:4F:43"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -84.0,
+   "best_bssid": "80:F1:A8:36:4F:43"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -89.0,
+   "best_bssid": "80:F1:A8:36:4F:43"
+  },
+  {
+   "waypoint_id": 5,
+   "x": 1.55,
+   "y": 2.5,
+   "rssi": -81.0,
+   "best_bssid": "80:F1:A8:36:4F:43"
+  }
+ ],
+ "LUHAN 2.4G": [
+  {
+   "waypoint_id": 1,
+   "x": 1.55,
+   "y": 0.5,
+   "rssi": -80.0,
+   "best_bssid": "10:8F:FE:1C:C6:F8"
+  },
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -77.0,
+   "best_bssid": "10:8F:FE:1C:C6:F8"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -77.5,
+   "best_bssid": "10:8F:FE:1C:C6:F8"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -83.5,
+   "best_bssid": "10:8F:FE:1C:C6:F8"
+  },
+  {
+   "waypoint_id": 5,
+   "x": 1.55,
+   "y": 2.5,
+   "rssi": -81.0,
+   "best_bssid": "10:8F:FE:1C:C6:F8"
+  }
+ ],
+ "Mary jane": [
+  {
+   "waypoint_id": 1,
+   "x": 1.55,
+   "y": 0.5,
+   "rssi": -90.0,
+   "best_bssid": "10:A4:DA:55:EB:34"
+  },
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -91.5,
+   "best_bssid": "10:A4:DA:55:EB:34"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -92.5,
+   "best_bssid": "10:A4:DA:55:EB:34"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -93.0,
+   "best_bssid": "10:A4:DA:55:EB:34"
+  },
+  {
+   "waypoint_id": 5,
+   "x": 1.55,
+   "y": 2.5,
+   "rssi": -82.5,
+   "best_bssid": "10:A4:DA:55:EB:34"
+  }
+ ],
+ "Min yoongi": [
+  {
+   "waypoint_id": 1,
+   "x": 1.55,
+   "y": 0.5,
+   "rssi": -92.0,
+   "best_bssid": "4C:46:D1:DC:2E:39"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -97.0,
+   "best_bssid": "4C:46:D1:DC:2E:39"
+  },
+  {
+   "waypoint_id": 5,
+   "x": 1.55,
+   "y": 2.5,
+   "rssi": -100.0,
+   "best_bssid": "4C:46:D1:DC:2E:39"
+  }
+ ],
+ "PLDTHOMEFIBR2hReN": [
+  {
+   "waypoint_id": 5,
+   "x": 1.55,
+   "y": 2.5,
+   "rssi": -104.0,
+   "best_bssid": "4E:B0:87:A8:99:20"
+  }
+ ],
+ "PLDTHOMEFIBRe5C7U": [
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -90.0,
+   "best_bssid": "72:46:98:28:56:D0"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -90.5,
+   "best_bssid": "72:46:98:28:56:D0"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -104.0,
+   "best_bssid": "72:46:98:28:56:D0"
+  }
+ ],
+ "Recover.Me-0D7890": [
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -92.0,
+   "best_bssid": "70:CA:97:CD:78:9B"
+  }
+ ],
+ "Recover.Me-0DAB30": [
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -100.5,
+   "best_bssid": "70:CA:97:CD:AB:3B"
+  }
+ ],
+ "Yumi 2.4G": [
+  {
+   "waypoint_id": 1,
+   "x": 1.55,
+   "y": 0.5,
+   "rssi": -39.0,
+   "best_bssid": "84:3C:99:58:8D:5F"
+  },
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -35.0,
+   "best_bssid": "84:3C:99:58:8D:5F"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -38.0,
+   "best_bssid": "84:3C:99:58:8D:5F"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -40.0,
+   "best_bssid": "84:3C:99:58:8D:5F"
+  },
+  {
+   "waypoint_id": 5,
+   "x": 1.55,
+   "y": 2.5,
+   "rssi": -46.0,
+   "best_bssid": "84:3C:99:58:8D:5F"
+  }
+ ],
+ "agsamosam 2.4G": [
+  {
+   "waypoint_id": 1,
+   "x": 1.55,
+   "y": 0.5,
+   "rssi": -89.0,
+   "best_bssid": "68:81:E0:FB:50:EC"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -101.0,
+   "best_bssid": "68:81:E0:FB:50:EC"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -111.0,
+   "best_bssid": "68:81:E0:FB:50:EC"
+  }
+ ],
+ "dezz_batangas": [
+  {
+   "waypoint_id": 1,
+   "x": 1.55,
+   "y": 0.5,
+   "rssi": -93.0,
+   "best_bssid": "E4:67:1E:B6:AB:59"
+  },
+  {
+   "waypoint_id": 2,
+   "x": 1.55,
+   "y": 1.0,
+   "rssi": -106.5,
+   "best_bssid": "E4:67:1E:B6:AB:59"
+  },
+  {
+   "waypoint_id": 3,
+   "x": 1.55,
+   "y": 1.5,
+   "rssi": -103.0,
+   "best_bssid": "E4:67:1E:B6:AB:59"
+  },
+  {
+   "waypoint_id": 4,
+   "x": 1.55,
+   "y": 2.0,
+   "rssi": -105.0,
+   "best_bssid": "E4:67:1E:B6:AB:59"
+  }
+ ]
+}

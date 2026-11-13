@@ -1,0 +1,107 @@
+{
+ "session_id": "001",
+ "floor": "1",
+ "status": "complete",
+ "partial_warning": false,
+ "records": 580,
+ "accepted": 268,
+ "rejected_by_reason": {
+  "incomplete": 0,
+  "unknown_waypoint": 0,
+  "invalid_value": 16,
+  "off_channel": 292,
+  "outlier": 4
+ },
+ "flagged_waypoints": [],
+ "waypoints_outside_grid": [],
+ "waypoint_offsets_m": {
+  "1": 0.0,
+  "2": 0.0,
+  "3": 0.0,
+  "4": 0.0,
+  "5": 0.0
+ },
+ "networks": [
+  "Akhies29 2.4G",
+  "Asiel2021 wifi",
+  "GiannaAizelle",
+  "Jaydon 2.4G",
+  "Jesuslovesyou 2.4G",
+  "LUHAN 2.4G",
+  "Mary jane",
+  "Min yoongi",
+  "PLDTHOMEFIBR2hReN",
+  "PLDTHOMEFIBRe5C7U",
+  "Recover.Me-0D7890",
+  "Recover.Me-0DAB30",
+  "Yumi 2.4G",
+  "agsamosam 2.4G",
+  "dezz_batangas"
+ ],
+ "methods": {
+  "IDW": {
+   "Akhies29 2.4G": "ok",
+   "Asiel2021 wifi": "ok",
+   "GiannaAizelle": "ok",
+   "Jaydon 2.4G": "not enough points (1 of 3)",
+   "Jesuslovesyou 2.4G": "ok",
+   "LUHAN 2.4G": "ok",
+   "Mary jane": "ok",
+   "Min yoongi": "ok",
+   "PLDTHOMEFIBR2hReN": "not enough points (1 of 3)",
+   "PLDTHOMEFIBRe5C7U": "ok",
+   "Recover.Me-0D7890": "not enough points (1 of 3)",
+   "Recover.Me-0DAB30": "not enough points (1 of 3)",
+   "Yumi 2.4G": "ok",
+   "agsamosam 2.4G": "ok",
+   "dezz_batangas": "ok"
+  },
+  "Kriging": {
+   "Akhies29 2.4G": "not enough points (5 of 20)",
+   "Asiel2021 wifi": "not enough points (4 of 20)",
+   "GiannaAizelle": "not enough points (5 of 20)",
+   "Jaydon 2.4G": "not enough points (1 of 20)",
+   "Jesuslovesyou 2.4G": "not enough points (5 of 20)",
+   "LUHAN 2.4G": "not enough points (5 of 20)",
+   "Mary jane": "not enough points (5 of 20)",
+   "Min yoongi": "not enough points (3 of 20)",
+   "PLDTHOMEFIBR2hReN": "not enough points (1 of 20)",
+   "PLDTHOMEFIBRe5C7U": "not enough points (3 of 20)",
+   "Recover.Me-0D7890": "not enough points (1 of 20)",
+   "Recover.Me-0DAB30": "not enough points (1 of 20)",
+   "Yumi 2.4G": "not enough points (5 of 20)",
+   "agsamosam 2.4G": "not enough points (3 of 20)",
+   "dezz_batangas": "not enough points (4 of 20)"
+  }
+ },
+ "grid": {
+  "cells_across": 14,
+  "cells_up": 22,
+  "cell_size_m": 0.25
+ },
+ "grid_reused": false,
+ "map_fingerprint": "04e8010a0229bba9d91991afa321a7f91a229b270a0a3c03ffdd26df8de2ee4e",
+ "config": {
+  "rssi_min_dbm": -120.0,
+  "rssi_max_dbm": -10.0,
+  "placeholder_values": [
+   0.0,
+   -127.0,
+   -239.0
+  ],
+  "near_sensitivity_dbm": -100.0,
+  "reject_off_channel": true,
+  "outlier_min_readings": 3,
+  "outlier_mad_k": 3.0,
+  "outlier_min_dev_db": 10.0,
+  "merge": "median",
+  "cell_size_m": 0.25,
+  "idw_power": 2.0,
+  "idw_min_points": 3,
+  "kriging_min_points": 20,
+  "kriging_model": "spherical",
+  "kriging_nlags": 6,
+  "kriging_clip": null,
+  "target_ssids": []
+ }
+}

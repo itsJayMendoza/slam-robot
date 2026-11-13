@@ -1,4 +1,4 @@
-"""The client's own worked example (T1 post-processing PDF) must come out exactly as printed."""
+"""The T1 worked example (post-processing document) must come out exactly as printed."""
 import json
 
 import pytest

@@ -1,0 +1,9 @@
+{
+ "session_id": "001",
+ "floor": "1",
+ "status": "complete",
+ "start_timestamp": 1794542345.874,
+ "end_timestamp": 1794542460.334,
+ "record_count": 580,
+ "records_sha256": "9ef65434f48db7c701d37a229304c00386afb28e11ddf8eddcfae5884f86f42a"
+}

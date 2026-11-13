@@ -1,0 +1,2511 @@
+{
+ "accepted": 268,
+ "rejected": 312,
+ "counts": {
+  "incomplete": 0,
+  "unknown_waypoint": 0,
+  "invalid_value": 16,
+  "off_channel": 292,
+  "outlier": 4
+ },
+ "flagged_waypoints": [],
+ "kept_below_near_sensitivity": 18,
+ "rejected_records": [
+  {
+   "seq": 2,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -37.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 8,
+   "waypoint_id": 1,
+   "bssid": "68:81:E0:FB:50:EC",
+   "rssi": -89.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 9"
+  },
+  {
+   "seq": 10,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 11,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -34.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 13,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 14,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -34.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 15,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 16,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 17,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 18,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 25,
+   "waypoint_id": 1,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -67.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 28,
+   "waypoint_id": 1,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -82.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 29,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -79.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 11"
+  },
+  {
+   "seq": 35,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 36,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 37,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 38,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 42,
+   "waypoint_id": 1,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -88.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 1, AP is on 3"
+  },
+  {
+   "seq": 44,
+   "waypoint_id": 1,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -67.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 45,
+   "waypoint_id": 1,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 46,
+   "waypoint_id": 1,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 47,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 48,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -45.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 49,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -70.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 50,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -36.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 51,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -36.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 56,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 57,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 59,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 60,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 65,
+   "waypoint_id": 1,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -70.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 68,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -42.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 69,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -42.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 70,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 71,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 78,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 79,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -34.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 80,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 81,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 83,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 89,
+   "waypoint_id": 1,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -88.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 1, AP is on 3"
+  },
+  {
+   "seq": 90,
+   "waypoint_id": 1,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -80.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 92,
+   "waypoint_id": 1,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -65.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 93,
+   "waypoint_id": 1,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -82.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 96,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -79.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 11"
+  },
+  {
+   "seq": 97,
+   "waypoint_id": 1,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 7"
+  },
+  {
+   "seq": 98,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -101.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 99,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -34.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 100,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 102,
+   "waypoint_id": 1,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -87.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 104,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 105,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -34.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 106,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 107,
+   "waypoint_id": 1,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -34.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 114,
+   "waypoint_id": 1,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 3"
+  },
+  {
+   "seq": 115,
+   "waypoint_id": 1,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -65.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 116,
+   "waypoint_id": 1,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -60.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 117,
+   "waypoint_id": 1,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 3"
+  },
+  {
+   "seq": 118,
+   "waypoint_id": 1,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -68.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 119,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 120,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -47.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 121,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 129,
+   "waypoint_id": 2,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -67.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 130,
+   "waypoint_id": 2,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -62.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 131,
+   "waypoint_id": 2,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -89.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 4, AP is on 3"
+  },
+  {
+   "seq": 134,
+   "waypoint_id": 2,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -81.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 135,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -47.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 140,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 141,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 150,
+   "waypoint_id": 2,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -76.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 152,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 154,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 155,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 156,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 159,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -42.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 160,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 161,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 173,
+   "waypoint_id": 2,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -66.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 174,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -48.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 176,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -47.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 177,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 180,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 181,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 182,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 183,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 193,
+   "waypoint_id": 2,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -62.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 194,
+   "waypoint_id": 2,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -67.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 198,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 199,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -49.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 200,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -48.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 201,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 204,
+   "waypoint_id": 2,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -88.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 205,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 206,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -46.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 207,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 208,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -44.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 216,
+   "waypoint_id": 2,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -57.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 217,
+   "waypoint_id": 2,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -57.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 218,
+   "waypoint_id": 2,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -78.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 219,
+   "waypoint_id": 2,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -60.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 220,
+   "waypoint_id": 2,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -79.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 222,
+   "waypoint_id": 2,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -61.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 223,
+   "waypoint_id": 2,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -80.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 226,
+   "waypoint_id": 2,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 227,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 228,
+   "waypoint_id": 2,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 229,
+   "waypoint_id": 2,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -87.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 7"
+  },
+  {
+   "seq": 231,
+   "waypoint_id": 2,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 233,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -84.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 234,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 235,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 7"
+  },
+  {
+   "seq": 237,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 238,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 7"
+  },
+  {
+   "seq": 241,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 244,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -84.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 245,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 247,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -44.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 248,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 249,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -46.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 250,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 251,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 252,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 253,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -37.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 254,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 262,
+   "waypoint_id": 3,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -69.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 263,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -78.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 264,
+   "waypoint_id": 3,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -73.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 266,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 267,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -37.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 269,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 272,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -87.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 274,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 276,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -34.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 278,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -44.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 279,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 280,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 281,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 282,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -36.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 283,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 284,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 285,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 291,
+   "waypoint_id": 3,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -72.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 293,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 295,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 7"
+  },
+  {
+   "seq": 296,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 300,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -84.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 302,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 303,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -44.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 304,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 305,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 306,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -36.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 307,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -36.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 308,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -36.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 309,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -37.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 316,
+   "waypoint_id": 3,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -72.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 317,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 4"
+  },
+  {
+   "seq": 318,
+   "waypoint_id": 3,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -72.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 319,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -80.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 4"
+  },
+  {
+   "seq": 321,
+   "waypoint_id": 3,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -80.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 322,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -78.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 323,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -91.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 11"
+  },
+  {
+   "seq": 325,
+   "waypoint_id": 3,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -76.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 326,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -75.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 327,
+   "waypoint_id": 3,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -84.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 328,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -78.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 5, AP is on 4"
+  },
+  {
+   "seq": 329,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -89.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 5, AP is on 7"
+  },
+  {
+   "seq": 331,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -89.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 332,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 7"
+  },
+  {
+   "seq": 335,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 339,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 340,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 341,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -46.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 342,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 343,
+   "waypoint_id": 3,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -89.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 7"
+  },
+  {
+   "seq": 344,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -44.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 345,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -31.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 346,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 347,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 348,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -39.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 349,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 357,
+   "waypoint_id": 3,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -72.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 358,
+   "waypoint_id": 3,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -87.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 359,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 362,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 365,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -42.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 366,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -40.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 371,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -66.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 373,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -64.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 376,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 378,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 379,
+   "waypoint_id": 4,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -91.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 382,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -48.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 383,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 384,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -47.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 385,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 390,
+   "waypoint_id": 4,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 391,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -66.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 393,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -64.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 394,
+   "waypoint_id": 4,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 398,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -55.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 11"
+  },
+  {
+   "seq": 399,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 401,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 402,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 404,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 405,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 406,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -42.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 412,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -65.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 413,
+   "waypoint_id": 4,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -82.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 414,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -65.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 415,
+   "waypoint_id": 4,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -87.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 416,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -41.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 417,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 419,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 420,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 422,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 423,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -44.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 428,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -56.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 429,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -59.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 430,
+   "waypoint_id": 4,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 4"
+  },
+  {
+   "seq": 431,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -62.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 432,
+   "waypoint_id": 4,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 434,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -65.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 435,
+   "waypoint_id": 4,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -61.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 436,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -39.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 439,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 441,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 444,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -44.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 445,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -46.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 446,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 447,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 448,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -34.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 449,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -43.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 450,
+   "waypoint_id": 4,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 458,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -35.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 461,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 463,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 465,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -59.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 466,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 467,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 7"
+  },
+  {
+   "seq": 468,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -59.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 469,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 470,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 7"
+  },
+  {
+   "seq": 473,
+   "waypoint_id": 5,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -89.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 1, AP is on 3"
+  },
+  {
+   "seq": 478,
+   "waypoint_id": 5,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -72.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 479,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -81.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 482,
+   "waypoint_id": 5,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -65.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 483,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 485,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 486,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -88.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 487,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 489,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 491,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 493,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -34.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 494,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 7"
+  },
+  {
+   "seq": 495,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -54.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 496,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 497,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 7"
+  },
+  {
+   "seq": 498,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -56.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 499,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 502,
+   "waypoint_id": 5,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -88.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 1, AP is on 3"
+  },
+  {
+   "seq": 505,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -85.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 507,
+   "waypoint_id": 5,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -70.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 508,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -92.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 11"
+  },
+  {
+   "seq": 509,
+   "waypoint_id": 5,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -81.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 4, AP is on 3"
+  },
+  {
+   "seq": 511,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 512,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 513,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -30.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 515,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 517,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 519,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -31.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 520,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -30.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 521,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -56.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 526,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -84.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 4"
+  },
+  {
+   "seq": 527,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -92.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 11"
+  },
+  {
+   "seq": 529,
+   "waypoint_id": 5,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -69.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 530,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -92.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 11"
+  },
+  {
+   "seq": 534,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -87.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 535,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -83.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 7"
+  },
+  {
+   "seq": 538,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -29.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 541,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 543,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -84.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 8, AP is on 7"
+  },
+  {
+   "seq": 544,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -54.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 545,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -30.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 546,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 7"
+  },
+  {
+   "seq": 547,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -30.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 550,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -42.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 1, AP is on 11"
+  },
+  {
+   "seq": 552,
+   "waypoint_id": 5,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -89.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 1, AP is on 3"
+  },
+  {
+   "seq": 553,
+   "waypoint_id": 5,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -89.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 3"
+  },
+  {
+   "seq": 554,
+   "waypoint_id": 5,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -61.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 1"
+  },
+  {
+   "seq": 555,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -88.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 4"
+  },
+  {
+   "seq": 556,
+   "waypoint_id": 5,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -81.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 2, AP is on 3"
+  },
+  {
+   "seq": 557,
+   "waypoint_id": 5,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -67.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 558,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -94.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 11"
+  },
+  {
+   "seq": 560,
+   "waypoint_id": 5,
+   "bssid": "48:2C:D0:79:22:EC",
+   "rssi": -69.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 3, AP is on 1"
+  },
+  {
+   "seq": 562,
+   "waypoint_id": 5,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -81.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 4, AP is on 3"
+  },
+  {
+   "seq": 563,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -84.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 5, AP is on 4"
+  },
+  {
+   "seq": 564,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -33.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 8"
+  },
+  {
+   "seq": 566,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -86.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 567,
+   "waypoint_id": 5,
+   "bssid": "10:8F:FE:1C:C6:F8",
+   "rssi": -87.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 6, AP is on 4"
+  },
+  {
+   "seq": 569,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -31.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 7, AP is on 8"
+  },
+  {
+   "seq": 571,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -239.0,
+   "reason": "invalid_value",
+   "detail": "placeholder value -239"
+  },
+  {
+   "seq": 574,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -54.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 575,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 576,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -84.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 7"
+  },
+  {
+   "seq": 577,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -56.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 11"
+  },
+  {
+   "seq": 578,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -32.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 9, AP is on 8"
+  },
+  {
+   "seq": 579,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:58:8D:5F",
+   "rssi": -48.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 11"
+  },
+  {
+   "seq": 580,
+   "waypoint_id": 5,
+   "bssid": "84:3C:99:10:78:3A",
+   "rssi": -38.0,
+   "reason": "off_channel",
+   "detail": "heard on channel 10, AP is on 8"
+  },
+  {
+   "seq": 125,
+   "waypoint_id": 2,
+   "bssid": "70:CA:97:CD:78:9B",
+   "rssi": -104.0,
+   "reason": "outlier",
+   "detail": "-104 is 11.5 dB from the median -92.5 (limit 10.0)"
+  },
+  {
+   "seq": 268,
+   "waypoint_id": 3,
+   "bssid": "84:3C:99:5A:E9:5B",
+   "rssi": -106.0,
+   "reason": "outlier",
+   "detail": "-106 is 13.0 dB from the median -93 (limit 10.0)"
+  },
+  {
+   "seq": 324,
+   "waypoint_id": 3,
+   "bssid": "10:A4:DA:55:EB:34",
+   "rssi": -111.0,
+   "reason": "outlier",
+   "detail": "-111 is 18.0 dB from the median -93 (limit 10.0)"
+  },
+  {
+   "seq": 460,
+   "waypoint_id": 5,
+   "bssid": "80:F1:A8:36:4F:43",
+   "rssi": -115.0,
+   "reason": "outlier",
+   "detail": "-115 is 34.0 dB from the median -81 (limit 10.0)"
+  }
+ ]
+}
