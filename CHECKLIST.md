@@ -82,6 +82,7 @@ Last updated: 2026-11-06.
 ## 8. Post-processing
 - [~] `slam_robot_interpolation` (IDW, Ordinary Kriging, variance, holdout, k-fold, thinning, metrics, per-AP table, gap finder): 34 tests pass
 - [ ] Heatmap PNG rendering overlaid on the floor plan (RSSI, SNR where valid, noise where valid, Kriging variance)
+- [~] `slam_robot_postprocess`: the client's T1 pipeline, phases A-D (session checks, untouched raw copy, cleaning with per-reason counts incl. off-channel and the adapter's -239 placeholder, median merge, per-SSID sets, grid from map.yaml, IDW, Kriging with min-points/fail handling, all-networks view, T1 JSON outputs); 26 tests incl. the client's worked example reproduced exactly; run on the first real walk (session 001). Not yet: HTTP transfer + 3-attempt retry
 - [ ] Coverage gap report as a deliverable (document or CSV), with measured vs interpolated
 - [ ] Threshold values configurable (RSSI -67 dBm, SNR 20 dB; the thesis lit review's 25 dB noted)
 - [ ] Run on real data

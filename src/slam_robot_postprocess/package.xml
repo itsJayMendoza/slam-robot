@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>slam_robot_postprocess</name>
+  <version>0.1.0</version>
+  <description>Laptop post-processing pipeline (T1): receive a survey session, clean, merge, group per SSID, build the grid, run IDW and Ordinary Kriging</description>
+  <maintainer email="cjay.m.mendoza@gmail.com">shichiro</maintainer>
+  <license>MIT</license>
+  <depend>slam_robot_interpolation</depend>
+  <depend>slam_robot_waypoints</depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <test_depend>python3-pytest</test_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>
