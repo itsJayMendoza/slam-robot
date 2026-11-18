@@ -1,7 +1,7 @@
 # slam-robot project checklist
 
 Legend: `[x]` done and verified, `[~]` written and tested here but not yet proven on the robot or Pi, `[ ]` not started.
-Last updated: 2026-11-06.
+Last updated: 2026-11-18.
 
 ## 1. Pi and environment
 - [x] Ubuntu Server 22.04 arm64 on the Pi 4B, headless, SSH works (`robot@slam.local`)
@@ -40,7 +40,8 @@ Last updated: 2026-11-06.
 
 ## 3. Chassis, power, electronics
 - [ ] Assemble chassis, JGA25-360 motors, ball caster, second deck
-- [ ] Wiring per the plan (TB6612 and ESP32 pins; BIN1 on GPIO 17, not 12); common ground
+- [ ] Wiring per the plan: TB6612 PWMA/AIN1/AIN2 on GPIO 25/26/27, PWMB/BIN1/BIN2 on 14/17/13 (not 12), STBY on 33 (not tied high: GPIO 14 may pulse at boot); encoders on 34/35 and 32/39 (blue VCC to 3.3 V, 10 k pull-ups if a count never changes); common ground
+- [ ] MPU6050 on the Pi header: VCC pin 1 (3.3 V), SDA pin 3, SCL pin 5, GND pin 6; mounted rigidly, flat, near the axle centre, away from the motor wires
 - [ ] Verify encoder outputs are true 90-degree quadrature; measure real ticks per wheel revolution
 - [ ] Power: 3S LiPo, DC-rated switch, inline fuse, XL4016 set to about 5.1 V, separate Pi rail
 - [ ] Power ESP32 and LiDAR from the buck rail if the Pi's USB (about 1.2 A total) is too tight; test with all devices under load
@@ -49,9 +50,10 @@ Last updated: 2026-11-06.
 - [ ] Measure track width on the built chassis (wheel radius 36 mm)
 
 ## 4. ESP32 firmware and base bridge
-- [ ] Firmware: PWM, direction, encoder ISRs, MPU6050, wheel-speed PID, 500 ms watchdog
-- [ ] Framed USB serial protocol (setpoints in, ticks and IMU out)
-- [ ] `slam_robot_base_bridge`: `/odom`, `/imu/data`, `/cmd_vel`, TF odom to base_link
+- [ ] Firmware: PWM (20 kHz), direction, encoder ISRs, wheel-speed PID, 500 ms watchdog, stall cutoff (the IMU is on the Pi, not the ESP32)
+- [ ] Framed USB serial protocol (setpoints in, ticks out)
+- [ ] `slam_robot_base_bridge`: `/odom`, `/cmd_vel`, TF odom to base_link
+- [~] `slam_robot_imu`: MPU6050 on the Pi's I2C bus, `imu/data_raw` (gyro + accel, covariances from a stationary calibration, `~/calibrate` service for re-measuring the bias at a waypoint), `imu_check` CLI; 19 tests pass; not yet run on the Pi
 - [ ] Teleop from the laptop
 
 ## 5. LiDAR, fusion, mapping
