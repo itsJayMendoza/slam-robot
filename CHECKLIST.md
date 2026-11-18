@@ -52,11 +52,12 @@ Last updated: 2026-11-18.
 - [ ] Measure track width on the built chassis (wheel radius 36 mm)
 
 ## 4. ESP32 firmware and base bridge
-- [ ] Firmware: 11-bit PWM at 20 kHz, direction fixes, encoders on the ESP32 pulse-counter hardware, wheel-speed PID, speed limit (start at 0.3 m/s), 500 ms watchdog, stall cutoff (the IMU is on the Pi, not the ESP32)
-- [ ] Framed USB serial protocol (setpoints in, ticks out)
+- [~] Firmware `firmware/src/base`: 11-bit PWM at 20 kHz, direction fixes (both wheels confirmed forward), encoders on the pulse-counter hardware, wheel-speed PI with feedforward, 0.32 m/s limit, 500 ms command timeout (verified), stall / wrong-direction / overspeed faults (overspeed verified when a sign error made a wheel run away); bench-tested in the air: holds 5,000 counts/s within ±200, jerky below about 2,000 counts/s (wheels at the start-up threshold); gains to tune on the floor
+- [x] USB serial protocol: ASCII lines, `v <l> <r>` in counts/s answered by encoder counts, speeds and fault bits (documented in `firmware/src/base/main.cpp`)
 - [ ] Base on the Pi: ros2_control hardware interface + `diff_drive_controller` (as in andino and bumperbot) giving `/odom`, `/cmd_vel`, TF odom to base_link
 - [~] `slam_robot_imu`: MPU6050 on the Pi's I2C bus, `imu/data_raw` (gyro + accel, covariances from a stationary calibration, `~/calibrate` service for re-measuring the bias at a waypoint), `imu_check` CLI; 21 tests pass; bench-tested on the Pi: 100 Hz, gyro z noise about 0.12 deg/s, stable bias. Still to do: 90-degree turn check (sign and scale), `imu_node` rate check, test on the robot
-- [ ] Teleop from the laptop
+- [~] `slam_robot_base`: serial link + `base_drive` (status, `straight` with counts-per-metre calibration and straight-line hold, keyboard `teleop`) for floor tests over SSH; 10 tests pass; driven against the real ESP32 with the wheels in the air
+- [ ] Teleop from the laptop through ROS (`/cmd_vel`)
 
 ## 5. LiDAR, fusion, mapping
 - [ ] YDLidar-SDK and `ydlidar_ros2_driver` on the Pi (X3: verify port, baud, scan frequency)
