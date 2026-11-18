@@ -8,7 +8,7 @@ import math
 import sys
 import time
 
-from .calibration import NotStill, apply, calibrate, collect
+from .calibration import NotStill, apply, axis_stats, calibrate, collect
 from .mpu6050 import KNOWN_IDS, MPU6050, explain_io_error, open_bus
 
 
@@ -19,6 +19,8 @@ def main(argv=None):
     ap.add_argument("--rate", type=float, default=100.0)
     ap.add_argument("--gyro-range", type=int, default=250, choices=[250, 500, 1000, 2000])
     ap.add_argument("--seconds", type=float, default=3.0, help="stationary measurement length")
+    ap.add_argument("--max-std", type=float, default=0.02,
+                    help="pass limit for the gyro std, rad/s (default 0.02 = 1.15 deg/s)")
     ap.add_argument("--live", action="store_true", help="afterwards, print turn rate and heading")
     a = ap.parse_args(argv)
     try:
@@ -36,21 +38,31 @@ def main(argv=None):
     n = max(20, int(a.seconds * a.rate))
     print(f"keep it still: measuring {n} samples ...")
     t0 = time.monotonic()
-    samples = collect(dev.read, n, 1.0 / a.rate, time.sleep)
-    print(f"read rate: {n / (time.monotonic() - t0):.0f} Hz")
-    try:
-        cal = calibrate(samples)
-    except NotStill as e:
-        sys.exit(f"FAIL: {e}")
+    samples = collect(dev.read, n, 1.0 / a.rate, time.sleep, time.monotonic)
+    print(f"read rate: {n / (time.monotonic() - t0):.0f} Hz, temperature {samples[-1].temp_c:.1f} C")
+
     deg = math.degrees
-    print(f"accel mean (m/s^2): x {cal.accel_mean[0]:+.2f}  y {cal.accel_mean[1]:+.2f}  "
-          f"z {cal.accel_mean[2]:+.2f}   |g| {cal.gravity:.2f} (expect 9.81)")
-    print("gyro bias (deg/s):  " + "  ".join(f"{ax} {deg(b):+.3f}"
-                                             for ax, b in zip("xyz", cal.gyro_bias)))
-    print("gyro noise (deg/s): " + "  ".join(f"{ax} {deg(math.sqrt(v)):.3f}"
-                                             for ax, v in zip("xyz", cal.gyro_var)))
-    print(f"temperature: {samples[-1].temp_c:.1f} C")
-    print("PASS")
+    print("\n             mean      std   peak-to-peak   drift (last third - first third)")
+    for name, which, conv, unit in [("gyro", "gyro", deg, "deg/s"), ("accel", "accel", float, "m/s^2")]:
+        for ax, st in zip("xyz", axis_stats(samples, which)):
+            print(f"{name} {ax}  {conv(st.mean):+8.3f} {conv(st.std):8.3f} {conv(st.peak_to_peak):10.3f}"
+                  f" {conv(st.drift):+12.3f}   {unit}")
+    g = math.sqrt(sum(st.mean ** 2 for st in axis_stats(samples, "accel")))
+    print(f"|g| {g:.2f} m/s^2 (expect 9.81)\n")
+    try:
+        cal = calibrate(samples, a.max_std)
+    except NotStill as e:
+        print(f"FAIL: {e}")
+        worst = max(axis_stats(samples, "gyro"), key=lambda st: st.std)
+        if abs(worst.drift) > 2 * worst.std:
+            print("hint: the gyro is drifting steadily (warming up, or the board slowly tilting); "
+                  "run again after a minute")
+        else:
+            print("hint: noise or vibration; place the board flat on a solid surface, do not touch "
+                  "the wires, and run again. If it stays this high the chip itself is noisy")
+        sys.exit(1)
+    print("PASS (gyro std below "
+          f"{deg(a.max_std):.2f} deg/s on every axis; this bias is what imu_node will subtract)")
     if not a.live:
         return
 

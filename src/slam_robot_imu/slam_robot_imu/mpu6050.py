@@ -39,7 +39,13 @@ class Sample:
     temp_c: float
 
 
-def convert(block, gyro_range_dps=250, accel_range_g=2):
+# Temperature formula: MPU6050 raw/340 + 36.53; the MPU6500 family (0x70, 0x71, 0x73) raw/333.87 + 21
+TEMP_MPU6050 = (340.0, 36.53)
+TEMP_MPU6500 = (333.87, 21.0)
+MPU6500_FAMILY = {0x70, 0x71, 0x73}
+
+
+def convert(block, gyro_range_dps=250, accel_range_g=2, temp=TEMP_MPU6050):
     """14 bytes from ACCEL_XOUT_H (accel xyz, temperature, gyro xyz; big-endian) -> Sample."""
     if len(block) != 14:
         raise ValueError(f"expected 14 bytes, got {len(block)}")
@@ -48,7 +54,7 @@ def convert(block, gyro_range_dps=250, accel_range_g=2):
     g_scale = math.radians(1.0) / GYRO_LSB_PER_DPS[gyro_range_dps]
     return Sample(accel=tuple(x * a_scale for x in v[0:3]),
                   gyro=tuple(x * g_scale for x in v[4:7]),
-                  temp_c=v[3] / 340.0 + 36.53)
+                  temp_c=v[3] / temp[0] + temp[1])
 
 
 def sample_divider(rate_hz, dlpf):
@@ -71,6 +77,7 @@ class MPU6050:
         self.bus, self.address = bus, address
         self.gyro_range_dps, self.accel_range_g = gyro_range_dps, accel_range_g
         self.dlpf, self.rate_hz = dlpf, rate_hz
+        self.temp = TEMP_MPU6050
 
     @property
     def chip_rate_hz(self):
@@ -78,7 +85,10 @@ class MPU6050:
         return base / (1 + sample_divider(self.rate_hz, self.dlpf))
 
     def who_am_i(self):
-        return self.bus.read_byte_data(self.address, WHO_AM_I)
+        """Read the chip id; also selects the matching temperature formula."""
+        chip = self.bus.read_byte_data(self.address, WHO_AM_I)
+        self.temp = TEMP_MPU6500 if chip in MPU6500_FAMILY else TEMP_MPU6050
+        return chip
 
     def configure(self, sleep=time.sleep):
         w = self.bus.write_byte_data
@@ -94,7 +104,7 @@ class MPU6050:
     def read(self):
         """One burst read of all axes, so accel and gyro come from the same instant."""
         block = self.bus.read_i2c_block_data(self.address, ACCEL_XOUT_H, 14)
-        return convert(block, self.gyro_range_dps, self.accel_range_g)
+        return convert(block, self.gyro_range_dps, self.accel_range_g, self.temp)
 
 
 def open_bus(number):

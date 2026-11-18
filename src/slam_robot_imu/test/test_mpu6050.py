@@ -47,6 +47,15 @@ def test_accel_and_temperature():
     assert s.temp_c == pytest.approx(-521 / 340 + 36.53)
 
 
+def test_mpu6500_temperature_formula_selected_by_chip_id():
+    dev = m.MPU6050(FakeBus(block(temp=3339), chip=0x70))
+    dev.who_am_i()
+    assert dev.read().temp_c == pytest.approx(3339 / 333.87 + 21.0)
+    dev = m.MPU6050(FakeBus(block(temp=-521), chip=0x68))
+    dev.who_am_i()
+    assert dev.read().temp_c == pytest.approx(-521 / 340 + 36.53)
+
+
 def test_convert_rejects_short_block():
     with pytest.raises(ValueError):
         m.convert([0] * 12)

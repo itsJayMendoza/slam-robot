@@ -3,7 +3,8 @@ import random
 
 import pytest
 
-from slam_robot_imu.calibration import VAR_FLOOR, NotStill, apply, calibrate, collect
+from slam_robot_imu.calibration import (VAR_FLOOR, NotStill, apply, axis_stats, calibrate,
+                                        collect)
 from slam_robot_imu.mpu6050 import G, Sample
 
 
@@ -54,8 +55,28 @@ def test_covariance_never_zero():
     assert min(cal.gyro_var + cal.accel_var) == VAR_FLOOR
 
 
-def test_collect():
-    it = iter(range(5))
+def test_collect_keeps_schedule_despite_slow_reads():
+    t = [0.0]
     slept = []
-    assert collect(lambda: next(it), 3, 0.01, slept.append) == [0, 1, 2]
-    assert slept == [0.01] * 3
+
+    def read():
+        t[0] += 0.004                      # each read takes 4 ms
+        return round(t[0], 3)
+
+    def sleep(d):
+        slept.append(round(d, 6))
+        t[0] += d
+
+    out = collect(read, 3, 0.01, sleep, lambda: t[0])
+    assert len(out) == 3
+    assert slept == [0.006, 0.006, 0.006]  # 10 ms period, not 10 ms + read time
+    assert t[0] == pytest.approx(0.03)
+
+
+def test_axis_stats_separates_drift_from_noise():
+    samples = [Sample((0.0, 0.0, G), (0.0, 0.0, i * 0.001), 25.0) for i in range(90)]
+    z = axis_stats(samples, "gyro")[2]
+    assert z.drift == pytest.approx(0.06, abs=0.001)     # steady ramp: large drift
+    assert z.peak_to_peak == pytest.approx(0.089)
+    x = axis_stats(samples, "gyro")[0]
+    assert (x.std, x.drift) == (0.0, 0.0)

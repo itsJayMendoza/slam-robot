@@ -53,10 +53,32 @@ def apply(sample, cal):
                   temp_c=sample.temp_c)
 
 
-def collect(read, n, period_s, sleep):
-    """n samples from read(), one every period_s (blocking; for the CLI)."""
+def collect(read, n, period_s, sleep, clock):
+    """n samples from read() on a fixed schedule, one every period_s (blocking; for the CLI).
+    Sleeps until the next slot instead of a fixed time, so the read time does not lower the rate."""
     out = []
+    next_t = clock()
     for _ in range(n):
         out.append(read())
-        sleep(period_s)
+        next_t += period_s
+        sleep(max(0.0, next_t - clock()))
+    return out
+
+
+@dataclass
+class AxisStats:
+    mean: float
+    std: float
+    peak_to_peak: float
+    drift: float          # mean of the last third minus mean of the first third
+
+
+def axis_stats(samples, which):
+    """Per-axis statistics of samples' 'gyro' or 'accel', for telling noise from drift or motion."""
+    out = []
+    for axis in zip(*(getattr(s, which) for s in samples)):
+        k = max(1, len(axis) // 3)
+        out.append(AxisStats(statistics.fmean(axis), statistics.pstdev(axis),
+                             max(axis) - min(axis),
+                             statistics.fmean(axis[-k:]) - statistics.fmean(axis[:k])))
     return out
