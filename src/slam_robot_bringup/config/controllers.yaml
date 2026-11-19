@@ -1,0 +1,44 @@
+# ros2_control for the slam-robot base. Speeds: firmware limit 50,000 counts/s = about 0.23 m/s per wheel.
+controller_manager:
+  ros__parameters:
+    update_rate: 50   # Hz; each cycle is one serial round trip to the ESP32
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+diff_drive_controller:
+  ros__parameters:
+    left_wheel_names: ["wheel_left_joint"]
+    right_wheel_names: ["wheel_right_joint"]
+    wheel_separation: 0.180      # measured: 21.5 cm outside to outside minus 3.5 cm tyre width
+    wheel_radius: 0.036          # 72 mm wheels; counts per turn in the URDF come from the 2 m floor test
+    wheel_separation_multiplier: 1.0   # to be set by the spin test against the IMU
+    left_wheel_radius_multiplier: 1.0
+    right_wheel_radius_multiplier: 1.0
+
+    publish_rate: 50.0
+    odom_frame_id: odom
+    base_frame_id: base_footprint
+    enable_odom_tf: true         # false once the EKF publishes odom -> base_footprint
+    use_stamped_vel: false       # plain Twist on /cmd_vel (teleop_twist_keyboard, Nav2 on Humble)
+    cmd_vel_timeout: 0.5
+    open_loop: false
+    position_feedback: true
+    pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 0.03]
+    twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 0.03]
+
+    linear.x.has_velocity_limits: true
+    linear.x.max_velocity: 0.20
+    linear.x.min_velocity: -0.20
+    linear.x.has_acceleration_limits: true
+    linear.x.max_acceleration: 0.4
+    linear.x.min_acceleration: -0.4
+    angular.z.has_velocity_limits: true
+    angular.z.max_velocity: 1.5          # wheels at +/-0.135 m/s
+    angular.z.min_velocity: -1.5
+    angular.z.has_acceleration_limits: true
+    angular.z.max_acceleration: 3.0
+    angular.z.min_acceleration: -3.0

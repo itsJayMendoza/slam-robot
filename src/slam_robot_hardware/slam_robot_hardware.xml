@@ -1,0 +1,6 @@
+<library path="slam_robot_hardware">
+  <class name="slam_robot_hardware/SlamRobotSystem" type="slam_robot_hardware::SlamRobotSystem"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>Differential base on the slam-robot ESP32 firmware (USB serial, counts/s).</description>
+  </class>
+</library>

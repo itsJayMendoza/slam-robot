@@ -54,16 +54,16 @@ Last updated: 2026-11-18.
 ## 4. ESP32 firmware and base bridge
 - [~] Firmware `firmware/src/base`: 11-bit PWM at 20 kHz, direction fixes (both wheels confirmed forward), encoders on the pulse-counter hardware, wheel-speed PI with feedforward, 0.23 m/s limit (50,000 counts/s; was 7,000 counts/s, only about 4 cm/s, before the rescale), 500 ms command timeout (verified), stall / wrong-direction / overspeed faults (overspeed verified when a sign error made a wheel run away); bench-tested in the air: holds 5,000 counts/s within ±200, jerky below about 2,000 counts/s (wheels at the start-up threshold); gains to tune on the floor
 - [x] USB serial protocol: ASCII lines, `v <l> <r>` in counts/s answered by encoder counts, speeds and fault bits (documented in `firmware/src/base/main.cpp`)
-- [ ] Base on the Pi: ros2_control hardware interface + `diff_drive_controller` (as in andino and bumperbot) giving `/odom`, `/cmd_vel`, TF odom to base_link
+- [~] Base on the Pi: ros2_control hardware interface + `diff_drive_controller` (as in andino and bumperbot) giving `/odom`, `/cmd_vel`, TF odom to base_link. `slam_robot_hardware` (C++ SystemInterface, firmware protocol, 5 gtests) and `slam_robot_bringup` (`base.launch.py`, `controllers.yaml`: separation 0.180 m, radius 0.036 m, 0.20 m/s and 1.5 rad/s limits) written; verified with mock hardware in Docker (controllers active, /odom and TF move with /cmd_vel); not yet run on the robot
 - [~] `slam_robot_imu`: MPU6050 on the Pi's I2C bus, `imu/data_raw` (gyro + accel, covariances from a stationary calibration, `~/calibrate` service for re-measuring the bias at a waypoint), `imu_check` CLI; 21 tests pass; bench-tested on the Pi: 100 Hz, gyro z noise about 0.12 deg/s, stable bias. Still to do: 90-degree turn check (sign and scale), `imu_node` rate check, test on the robot
-- [~] `slam_robot_base`: serial link + `base_drive` (status, `straight` with counts-per-metre calibration and straight-line hold, keyboard `teleop`) for floor tests over SSH; 12 tests pass; drove 2 m on the floor over SSH from the Pi
+- [~] `slam_robot_base`: serial link + `base_drive` (status, `straight` with counts-per-metre calibration and straight-line hold, keyboard `teleop`) for floor tests over SSH; 12 tests pass; drove 2 m on the floor over SSH from the Pi; keyboard teleop on the floor works (forward, reverse, turns on the spot)
 - [ ] Teleop from the laptop through ROS (`/cmd_vel`)
 
 ## 5. LiDAR, fusion, mapping
 - [ ] YDLidar-SDK and `ydlidar_ros2_driver` on the Pi (X3: verify port, baud, scan frequency)
 - [ ] Verify X3 minimum range, blind spot, glass and dark-surface behavior
 - [ ] Mask the mast angular slice (`ignore_array` or laser_filters)
-- [ ] URDF and TF tree for the real robot
+- [~] URDF and TF tree for the real robot (`slam_robot_description`): measured layout (127 mm square plates centred 25 mm ahead of the axle, wheels 0.180 m apart, one front caster, IMU 140 mm high, X3 55 mm ahead of the axle and 195 mm high); X3 0 deg direction (`laser_yaw`) to set by the box-in-front test; caster position estimated
 - [ ] EKF (`robot_localization`) fusing odometry and IMU
 - [ ] `slam_toolbox` mapping run, map saved
 - [ ] Experiment 1 targets: wall RMSE at most 0.10 m, overlap at least 85%
