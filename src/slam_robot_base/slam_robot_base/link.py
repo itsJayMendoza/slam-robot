@@ -60,7 +60,15 @@ class BaseLink:
         time.sleep(boot_wait_s)          # opening the port resets the ESP32
         port.reset_input_buffer()
         link = cls(port)
-        version = link.request("ver")
+        for attempt in range(3):         # the ESP32 sometimes needs longer after the reset
+            try:
+                version = link.request("ver")
+                break
+            except LinkError:
+                if attempt == 2:
+                    raise
+                time.sleep(1.0)
+                port.reset_input_buffer()
         if not version.startswith("ver slam-robot-base"):
             raise LinkError(f"no base firmware on {device} (got {version!r})")
         return link

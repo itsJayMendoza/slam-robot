@@ -21,7 +21,7 @@
 #include <Arduino.h>
 #include "driver/pulse_cnt.h"
 
-static const char* VERSION = "slam-robot-base 0.2";
+static const char* VERSION = "slam-robot-base 0.3";
 
 // ---------- limits and timing ----------
 static const uint32_t LOOP_US = 20000;            // 50 Hz speed loop
@@ -251,6 +251,18 @@ void readSerial() {
 }
 
 // ---------- main ----------
+// Why the chip last restarted; a brownout here means the ESP32's supply dipped (motor noise).
+const char* resetText() {
+  switch (esp_reset_reason()) {
+    case ESP_RST_POWERON: return "power-on or EN pin";
+    case ESP_RST_SW: return "software";
+    case ESP_RST_PANIC: return "crash";
+    case ESP_RST_INT_WDT: case ESP_RST_TASK_WDT: case ESP_RST_WDT: return "watchdog";
+    case ESP_RST_BROWNOUT: return "BROWNOUT";
+    default: return "other";
+  }
+}
+
 void setup() {
   pinMode(STBY, OUTPUT);
   digitalWrite(STBY, LOW);                       // motors off before anything else
@@ -259,7 +271,7 @@ void setup() {
   Serial.begin(115200);
   bool ok = setupEncoder(left.enc, 34, 35) && setupEncoder(right.enc, 32, 39);
   stopAll();
-  Serial.printf("# %s ready%s\n", VERSION, ok ? "" : " (ENCODER SETUP FAILED)");
+  Serial.printf("# %s ready%s, reset: %s\n", VERSION, ok ? "" : " (ENCODER SETUP FAILED)", resetText());
 }
 
 void loop() {

@@ -128,6 +128,25 @@ def cmd_teleop(link, a):
         print()
 
 
+def listen(link, seconds=3.0):
+    """After a lost reply, show what the ESP32 sends: a boot banner means it restarted."""
+    print(f"listening {seconds:.0f} s for ESP32 messages ...")
+    t0 = time.monotonic()
+    heard = False
+    while time.monotonic() - t0 < seconds:
+        try:
+            raw = link.port.readline()
+        except Exception as e:      # the USB device itself went away
+            print(f"  serial port lost: {e} (USB disconnected?)")
+            return
+        line = raw.decode(errors="replace").strip()
+        if line:
+            heard = True
+            print(f"  {line}")
+    if not heard:
+        print("  nothing: the ESP32 is silent (USB link dropped, or the chip is stuck)")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     ap.add_argument("--port", default="/dev/esp32", help="default /dev/esp32 (udev link)")
@@ -141,11 +160,15 @@ def main(argv=None):
     p = sub.add_parser("teleop")
     p.add_argument("--step", type=float, default=0.05, help="m/s per key press")
     a = ap.parse_args(argv)
+    link = None
     try:
         link = BaseLink.open(a.port)
         {"status": cmd_status, "straight": cmd_straight, "teleop": cmd_teleop}[a.cmd](link, a)
     except LinkError as e:
-        sys.exit(f"error: {e}")
+        print(f"\nerror: {e}")
+        if link is not None:
+            listen(link)
+        sys.exit(1)
     for n in link.notices:
         if "fault" in n:
             print(f"firmware: {n[2:]}")
