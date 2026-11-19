@@ -2,7 +2,8 @@
 <!-- slam-robot. All lengths in metres, measured on the real robot.
      Frames: base_footprint on the floor under the middle of the wheel axle; base_link on the axle
      (the point the robot turns about); x forward (towards the caster), y left, z up.
-     Chassis: two 127 x 127 mm (5 in) plates whose centre is 25 mm in front of the axle. -->
+     Chassis: the 3D-printed design in meshes/ (README there): wheels on the motors at the chassis
+     centre, a single front caster, lidar and IMU at the chassis' mounts. -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="slam_robot">
   <xacro:arg name="use_mock" default="false"/>
   <xacro:arg name="port" default="/dev/esp32"/>
@@ -12,12 +13,11 @@
   <xacro:property name="wheel_radius" value="0.036"/>       <!-- 72 mm wheels -->
   <xacro:property name="wheel_width" value="0.035"/>
   <xacro:property name="wheel_separation" value="0.180"/>   <!-- tyre centre to tyre centre -->
-  <xacro:property name="plate" value="0.127"/>
-  <xacro:property name="plate_x" value="0.025"/>            <!-- plate centre ahead of the axle -->
-  <xacro:property name="body_bottom" value="-0.006"/>       <!-- relative to the axle -->
-  <xacro:property name="body_top" value="0.124"/>           <!-- top plate, about 160 mm above the floor -->
-  <xacro:property name="caster_x" value="0.065"/>           <!-- estimated -->
-  <xacro:property name="caster_radius" value="0.012"/>
+  <!-- the chassis meshes (meshes/README.md) are for 65 mm wheels: scale them to ours -->
+  <xacro:property name="wheel_scale_r" value="${0.036 / 0.0325}"/>
+  <xacro:property name="wheel_scale_w" value="${0.035 / 0.0298}"/>
+  <xacro:property name="wheel_mesh_mid" value="${0.0141 * 0.035 / 0.0298}"/>
+  <xacro:property name="mesh" value="package://slam_robot_description/meshes"/>
 
   <material name="body"><color rgba="0.15 0.15 0.15 1"/></material>
   <material name="wheel"><color rgba="0.9 0.6 0.1 1"/></material>
@@ -26,16 +26,15 @@
   <link name="base_footprint"/>
   <link name="base_link">
     <visual>
-      <origin xyz="${plate_x} 0 ${(body_top + body_bottom) / 2}"/>
-      <geometry><box size="${plate} ${plate} ${body_top - body_bottom}"/></geometry>
+      <geometry><mesh filename="${mesh}/base_link.STL"/></geometry>
       <material name="body"/>
     </visual>
     <collision>
-      <origin xyz="${plate_x} 0 ${(body_top + body_bottom) / 2}"/>
-      <geometry><box size="${plate} ${plate} ${body_top - body_bottom}"/></geometry>
+      <origin xyz="0 0 0.0275"/>
+      <geometry><box size="0.138 0.127 0.103"/></geometry>
     </collision>
     <inertial>
-      <origin xyz="${plate_x} 0 0.04"/>
+      <origin xyz="0 0 0.04"/>
       <mass value="1.2"/>
       <inertia ixx="0.003" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
     </inertial>
@@ -46,11 +45,15 @@
     <origin xyz="0 0 ${wheel_radius}"/>
   </joint>
 
-  <xacro:macro name="wheel" params="side y">
+  <!-- joints at the tyre centres; the wheel mesh starts at its inner face, hence the visual offset -->
+  <xacro:macro name="wheel" params="side y roll">
     <link name="wheel_${side}_link">
       <visual>
-        <origin rpy="${pi / 2} 0 0"/>
-        <geometry><cylinder radius="${wheel_radius}" length="${wheel_width}"/></geometry>
+        <origin xyz="0 ${-y / fabs(y) * wheel_mesh_mid} 0" rpy="${roll} 0 0"/>
+        <geometry>
+          <mesh filename="${mesh}/wheel_${side}_link.STL"
+                scale="${wheel_scale_r} ${wheel_scale_r} ${wheel_scale_w}"/>
+        </geometry>
         <material name="wheel"/>
       </visual>
       <collision>
@@ -69,42 +72,51 @@
       <axis xyz="0 1 0"/>
     </joint>
   </xacro:macro>
-  <xacro:wheel side="left" y="${wheel_separation / 2}"/>
-  <xacro:wheel side="right" y="${-wheel_separation / 2}"/>
+  <xacro:wheel side="left" y="${wheel_separation / 2}" roll="${-pi / 2}"/>
+  <xacro:wheel side="right" y="${-wheel_separation / 2}" roll="${pi / 2}"/>
 
+  <!-- one front caster at the chassis' front caster mount (this robot has no rear caster) -->
   <link name="caster_link">
     <visual>
-      <geometry><sphere radius="${caster_radius}"/></geometry>
+      <geometry><mesh filename="${mesh}/caster_front_link.STL"/></geometry>
       <material name="body"/>
     </visual>
-    <collision><geometry><sphere radius="${caster_radius}"/></geometry></collision>
+    <collision><geometry><sphere radius="0.005"/></geometry></collision>
   </link>
   <joint name="caster_joint" type="fixed">
     <parent link="base_link"/>
     <child link="caster_link"/>
-    <origin xyz="${caster_x} 0 ${caster_radius - wheel_radius}"/>
+    <origin xyz="0.04755 0 ${0.0055 - wheel_radius}"/>
   </joint>
 
-  <!-- MPU6050 in the middle of the body under the top plate, 140 mm above the floor; Z up verified
-       (90 deg counterclockwise read +90), X assumed forward (not verified, only yaw rate is used) -->
-  <link name="imu_link"/>
+  <!-- MPU6050 in the middle of the body, at the chassis' IMU mount (its height does not matter: only the
+       yaw rate is used). Z up verified (90 deg counterclockwise read +90), X assumed forward. -->
+  <link name="imu_link">
+    <visual>
+      <geometry><mesh filename="${mesh}/imu_link.STL"/></geometry>
+      <material name="sensor"/>
+    </visual>
+  </link>
   <joint name="imu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="imu_link"/>
-    <origin xyz="0 0 ${0.140 - wheel_radius}"/>
+    <origin xyz="0 0 0.0699"/>
   </joint>
 
-  <!-- YDLidar X3: centre 55 mm ahead of the axle, middle of the spinning head 195 mm above the floor -->
+  <!-- YDLidar X3: centre 40 mm ahead of the wheel axle; height from the chassis' lidar mount
+       (a 2D scan does not depend on it). Drawn with the RPLIDAR A1 mesh, which stays put while
+       laser_yaw turns the scan frame. -->
   <link name="laser_link">
     <visual>
-      <geometry><cylinder radius="0.035" length="0.03"/></geometry>
+      <origin rpy="0 0 ${-$(arg laser_yaw)}"/>
+      <geometry><mesh filename="${mesh}/laser_link.STL"/></geometry>
       <material name="sensor"/>
     </visual>
   </link>
   <joint name="laser_joint" type="fixed">
     <parent link="base_link"/>
     <child link="laser_link"/>
-    <origin xyz="0.055 0 ${0.195 - wheel_radius}" rpy="0 0 $(arg laser_yaw)"/>
+    <origin xyz="0.040 0 0.1208" rpy="0 0 $(arg laser_yaw)"/>
   </joint>
 
   <xacro:include filename="$(find slam_robot_description)/urdf/ros2_control.xacro"/>

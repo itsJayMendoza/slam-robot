@@ -63,7 +63,7 @@ Last updated: 2026-11-18.
 - [ ] YDLidar-SDK and `ydlidar_ros2_driver` on the Pi (X3: verify port, baud, scan frequency)
 - [ ] Verify X3 minimum range, blind spot, glass and dark-surface behavior
 - [ ] Mask the mast angular slice (`ignore_array` or laser_filters)
-- [~] URDF and TF tree for the real robot (`slam_robot_description`): measured layout (127 mm square plates centred 25 mm ahead of the axle, wheels 0.180 m apart, one front caster, IMU 140 mm high, X3 55 mm ahead of the axle and 195 mm high); X3 0 deg direction (`laser_yaw`) to set by the box-in-front test; caster position estimated
+- [~] URDF and TF tree for the real robot (`slam_robot_description`): the 3D-printed chassis meshes from the reference repo (Apache-2.0, credited in meshes/README.md) with 72 mm wheels 0.180 m apart on the motor mounts, the front caster only, IMU at the chassis mount, lidar 40 mm ahead of the axle at the chassis mount height; X3 0 deg direction (`laser_yaw`) to set by the box-in-front test
 - [ ] EKF (`robot_localization`) fusing odometry and IMU
 - [ ] `slam_toolbox` mapping run, map saved
 - [ ] Experiment 1 targets: wall RMSE at most 0.10 m, overlap at least 85%
