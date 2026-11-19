@@ -5,7 +5,7 @@
                                             to get counts per metre
     base_drive teleop                       keyboard driving (w/s speed, a/d turn, space stop, q quit)
 
-The firmware limits speed to about 0.32 m/s and stops the motors 0.5 s after the last command, so
+The firmware limits speed to about 0.28 m/s and stops the motors 0.5 s after the last command, so
 the robot stops by itself if this tool or the SSH session dies.
 """
 import argparse
@@ -18,7 +18,7 @@ import tty
 from .link import DEFAULT_COUNTS_PER_M, MAX_CPS, BaseLink, LinkError
 
 PERIOD_S = 0.1   # command rate, well inside the firmware's 500 ms timeout
-FIRMWARE_ACCEL_CPS2 = 15000   # the firmware's speed ramp (ACCEL_CPS2)
+FIRMWARE_ACCEL_CPS2 = 90000   # the firmware's speed ramp (ACCEL_CPS2)
 HOLD_GAIN = 1.0               # counts/s of correction per count of left-right difference
 
 
@@ -130,14 +130,14 @@ def cmd_teleop(link, a):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
-    ap.add_argument("--port", default="/dev/ttyUSB0")
+    ap.add_argument("--port", default="/dev/esp32", help="default /dev/esp32 (udev link)")
     ap.add_argument("--counts-per-m", type=float, default=DEFAULT_COUNTS_PER_M,
-                    help=f"default {DEFAULT_COUNTS_PER_M:.0f} (5,000 counts per 72 mm wheel turn)")
+                    help=f"default {DEFAULT_COUNTS_PER_M:.0f} (floor test)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("status")
     p = sub.add_parser("straight")
     p.add_argument("--distance", type=float, default=2.0, help="metres; negative = backward")
-    p.add_argument("--speed", type=float, default=0.14, help="m/s")
+    p.add_argument("--speed", type=float, default=0.10, help="m/s")
     p = sub.add_parser("teleop")
     p.add_argument("--step", type=float, default=0.05, help="m/s per key press")
     a = ap.parse_args(argv)

@@ -50,4 +50,4 @@ def test_stop_must_be_acknowledged():
 
 
 def test_default_scale():
-    assert DEFAULT_COUNTS_PER_M == pytest.approx(22105, abs=5)
+    assert DEFAULT_COUNTS_PER_M == pytest.approx(178200)

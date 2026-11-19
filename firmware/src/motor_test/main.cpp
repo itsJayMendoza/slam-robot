@@ -25,7 +25,7 @@ static const uint32_t PWM_HZ = 20000;   // above hearing
 static const uint8_t PWM_BITS = 8;
 static const int STALL_DUTY = 30;    // the wheels turn from duty 20, so no movement at 30+ means blocked
 static const uint32_t STALL_MS = 500, KEY_TIMEOUT_MS = 15000, PRINT_MS = 250;
-static const int32_t ONE_TURN_TICKS = 5000;   // from the hand test (about 4,800-5,200 per turn)
+static const int32_t ONE_TURN_TICKS = 5000;   // NOTE: really about 1/8 wheel turn (49,200 counts per turn)
 static const int GO_DUTY = 28;
 
 // ---------- encoders (4x quadrature decoding, as in encoder_test) ----------

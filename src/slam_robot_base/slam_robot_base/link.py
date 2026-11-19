@@ -4,14 +4,12 @@ The firmware speaks ASCII lines: "v <l> <r>" (wheel speeds in encoder counts/s) 
 "e <left counts> <right counts> <left cps> <right cps> <fault>". Lines starting with '#' are
 comments (start-up banner, fault notices). See the protocol comment in firmware/src/base/main.cpp.
 """
-import math
 import time
 from dataclasses import dataclass
 
-COUNTS_PER_TURN = 5000.0          # measured on the robot (4,930 right, 5,050 left)
-WHEEL_DIAMETER_M = 0.072
-DEFAULT_COUNTS_PER_M = COUNTS_PER_TURN / (math.pi * WHEEL_DIAMETER_M)   # about 22,100
-MAX_CPS = 7000                    # the firmware's own limit
+COUNTS_PER_TURN = 49200.0         # left wheel turned once by hand
+DEFAULT_COUNTS_PER_M = 178200.0   # floor test: 44,560 counts over 0.25 m (to refine with a longer run)
+MAX_CPS = 50000                   # the firmware's own limit, about 0.28 m/s
 
 FAULTS = {1: "left stalled", 2: "right stalled", 4: "left turning the wrong way",
           8: "right turning the wrong way", 16: "left overspeed", 32: "right overspeed"}
@@ -52,7 +50,7 @@ class BaseLink:
         self.notices = notices if notices is not None else []   # '#' lines seen
 
     @classmethod
-    def open(cls, device="/dev/ttyUSB0", baud=115200, boot_wait_s=2.0):
+    def open(cls, device="/dev/esp32", baud=115200, boot_wait_s=2.0):
         import serial    # python3-serial; imported here so the tests need no serial port
         try:
             port = serial.Serial(device, baud, timeout=0.3)

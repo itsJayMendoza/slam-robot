@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from .mpu6050 import G, Sample
 
 VAR_FLOOR = 1e-6          # a covariance of exactly 0 would tell the EKF the sensor is perfect
-GRAVITY_TOLERANCE = 0.15  # mean accel magnitude must be within 15% of g
+GRAVITY_TOLERANCE = 0.25  # within 25% of g: this board reads |g| about 11.2 (+14%); accel is not used by the EKF
 
 
 class NotStill(Exception):
