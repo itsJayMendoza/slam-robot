@@ -51,3 +51,14 @@ def test_stop_must_be_acknowledged():
 
 def test_default_scale():
     assert DEFAULT_COUNTS_PER_M == pytest.approx(178200)
+
+
+def test_stray_line_skipped():
+    # the tail of a boot banner cut by reset_input_buffer
+    link = BaseLink(FakePort(["EN pin", "e 1 2 3 4 0"]))
+    assert link.read().left == 1 and link.skipped == ["EN pin"]
+
+
+def test_error_reply_not_skipped():
+    with pytest.raises(LinkError, match="err unknown"):
+        BaseLink(FakePort(["err unknown command"])).stop()

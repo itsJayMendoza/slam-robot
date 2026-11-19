@@ -21,7 +21,7 @@
 #include <Arduino.h>
 #include "driver/pulse_cnt.h"
 
-static const char* VERSION = "slam-robot-base 0.3";
+static const char* VERSION = "slam-robot-base 0.4";
 
 // ---------- limits and timing ----------
 static const uint32_t LOOP_US = 20000;            // 50 Hz speed loop
@@ -198,6 +198,9 @@ void handle(char* line) {
   for (char* t = strtok(line, " \t"); t && argc < 5; t = strtok(nullptr, " \t")) argv[argc++] = t;
   if (argc == 0) return;
   String c = argv[0];
+  // Never answer a line shaped like one of our own replies: if the host side ever echoes our output
+  // back, answering it would start an endless reply loop.
+  if (c == "ok" || c == "err" || c == "s" || c.startsWith("#") || ((c == "ver" || c == "e") && argc > 1)) return;
   if (fault && (c == "v" || c == "pwm" || c == "drive")) { replyEncoders(); return; }   // until x
   if (c == "v" && argc == 3) {
     left.cmd = constrain(atof(argv[1]), -MAX_CPS, MAX_CPS);

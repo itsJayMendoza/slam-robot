@@ -24,7 +24,7 @@ HOLD_GAIN = 1.0               # counts/s of correction per count of left-right d
 
 def cmd_status(link, a):
     s = link.read()
-    print(f"firmware: {link.request('ver')[4:]}")
+    print(f"firmware: {link.request('ver', expect='ver ')[4:]}")
     print(f"encoders: left {s.left}, right {s.right}; fault: {s.fault_text}")
 
 

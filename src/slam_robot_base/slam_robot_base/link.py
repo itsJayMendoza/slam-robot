@@ -48,6 +48,7 @@ class BaseLink:
     def __init__(self, port, notices=None):
         self.port = port
         self.notices = notices if notices is not None else []   # '#' lines seen
+        self.skipped = []                                         # stray lines ignored
 
     @classmethod
     def open(cls, device="/dev/esp32", baud=115200, boot_wait_s=2.0):
@@ -62,7 +63,7 @@ class BaseLink:
         link = cls(port)
         for attempt in range(3):         # the ESP32 sometimes needs longer after the reset
             try:
-                version = link.request("ver")
+                version = link.request("ver", expect="ver ")
                 break
             except LinkError:
                 if attempt == 2:
@@ -73,9 +74,12 @@ class BaseLink:
             raise LinkError(f"no base firmware on {device} (got {version!r})")
         return link
 
-    def request(self, cmd):
+    def request(self, cmd, expect=None):
+        """Send one command and return its reply line. '#' comments go to notices; with `expect`,
+        other stray lines (such as the tail of a boot banner cut by a buffer reset) are skipped,
+        but "err ..." replies are still returned."""
         self.port.write((cmd + "\n").encode())
-        for _ in range(5):
+        for _ in range(8):
             raw = self.port.readline()
             if not raw:
                 raise LinkError(f"no reply to {cmd!r}")
@@ -83,18 +87,22 @@ class BaseLink:
             if line.startswith("#"):
                 self.notices.append(line)
                 continue
-            if line:
-                return line
+            if not line:
+                continue
+            if expect and not line.startswith(expect) and not line.startswith("err"):
+                self.skipped.append(line)
+                continue
+            return line
         raise LinkError(f"no reply to {cmd!r}")
 
     def velocity(self, left_cps, right_cps):
-        return parse_state(self.request(f"v {round(left_cps)} {round(right_cps)}"))
+        return parse_state(self.request(f"v {round(left_cps)} {round(right_cps)}", expect="e "))
 
     def read(self):
-        return parse_state(self.request("e"))
+        return parse_state(self.request("e", expect="e "))
 
     def stop(self):
         """Stop and clear a latched fault."""
-        reply = self.request("x")
+        reply = self.request("x", expect="ok")
         if not reply.startswith("ok"):
             raise LinkError(f"stop not acknowledged: {reply!r}")
