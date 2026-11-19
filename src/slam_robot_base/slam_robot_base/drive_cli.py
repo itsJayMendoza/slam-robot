@@ -5,7 +5,7 @@
                                             to get counts per metre
     base_drive teleop                       keyboard driving (w/s speed, a/d turn, space stop, q quit)
 
-The firmware limits speed to about 0.28 m/s and stops the motors 0.5 s after the last command, so
+The firmware limits speed to about 0.23 m/s and stops the motors 0.5 s after the last command, so
 the robot stops by itself if this tool or the SSH session dies.
 """
 import argparse

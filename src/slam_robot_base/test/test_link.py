@@ -50,7 +50,7 @@ def test_stop_must_be_acknowledged():
 
 
 def test_default_scale():
-    assert DEFAULT_COUNTS_PER_M == pytest.approx(178200)
+    assert DEFAULT_COUNTS_PER_M == pytest.approx(217200)
 
 
 def test_stray_line_skipped():

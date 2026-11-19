@@ -8,8 +8,9 @@ import time
 from dataclasses import dataclass
 
 COUNTS_PER_TURN = 49200.0         # left wheel turned once by hand
-DEFAULT_COUNTS_PER_M = 178200.0   # floor test: 44,560 counts over 0.25 m (to refine with a longer run)
-MAX_CPS = 50000                   # the firmware's own limit, about 0.28 m/s
+WHEEL_DIAMETER_M = 0.072
+DEFAULT_COUNTS_PER_M = 217200.0   # 2 m floor test: 358,400 counts over 1.65 m (72 mm wheel: 49,100 per turn)
+MAX_CPS = 50000                   # the firmware's own limit, about 0.23 m/s
 
 FAULTS = {1: "left stalled", 2: "right stalled", 4: "left turning the wrong way",
           8: "right turning the wrong way", 16: "left overspeed", 32: "right overspeed"}

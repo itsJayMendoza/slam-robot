@@ -2,8 +2,8 @@
 //
 // Wiring: left motor  PWMA 25, AIN1 26, AIN2 27; encoder yellow 34, white 35
 //         right motor PWMB 14, BIN1 17, BIN2 13; encoder yellow 32, white 39;  STBY 33
-// Measured on the robot: about 49,200 counts per wheel turn (one turn by hand) and about 178,200
-// counts per metre (floor test); left motor direction and right encoder sign reversed (corrected below, so forward is positive on both wheels).
+// Measured on the robot: about 49,200 counts per wheel turn (one turn by hand) and 217,200
+// counts per metre (2 m floor test, 72 mm wheels); left motor direction and right encoder sign reversed (corrected below, so forward is positive on both wheels).
 //
 // Protocol: ASCII lines at 115200 baud, '\n' terminated. Speeds in encoder counts per second.
 //   v <l> <r>          set wheel speeds (clamped to +/-MAX_CPS); must repeat within 500 ms
@@ -27,13 +27,13 @@ static const char* VERSION = "slam-robot-base 0.4";
 static const uint32_t LOOP_US = 20000;            // 50 Hz speed loop
 static const uint32_t CMD_TIMEOUT_MS = 500;       // stop if the host goes quiet
 static const uint32_t DRIVE_MAX_MS = 10000;
-static const float MAX_CPS = 50000;               // about 0.28 m/s (178,200 counts per metre)
-static const float ACCEL_CPS2 = 90000;            // target ramp, about 0.5 m/s^2
+static const float MAX_CPS = 50000;               // about 0.23 m/s (217,200 counts per metre)
+static const float ACCEL_CPS2 = 90000;            // target ramp, about 0.4 m/s^2
 static const int PWM_BITS = 11, PWM_MAX = 2047;   // 20 kHz with 2,048 steps
 static const uint32_t PWM_HZ = 20000;
 static const int DUTY_MAX = 500;                  // about 24 %; MAX_CPS needs about 400 in the air
 static const int STALL_DUTY = 250;                // stall: this much duty but under STALL_CPS ...
-static const float STALL_CPS = 2400;              // about 1.3 cm/s
+static const float STALL_CPS = 2400;              // about 1.1 cm/s
 static const uint32_t STALL_MS = 1000;            // ... for this long
 static const float WRONG_DIR_CPS = 8000;          // turning against the target this fast ...
 static const uint32_t WRONG_DIR_MS = 300;         // ... for this long
