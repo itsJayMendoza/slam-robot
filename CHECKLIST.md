@@ -60,7 +60,7 @@ Last updated: 2026-11-18.
 - [~] Teleop through ROS (`/cmd_vel`): works from an SSH session on the Pi; from the laptop over `ROS_DOMAIN_ID=42` still to try
 
 ## 5. LiDAR, fusion, mapping
-- [ ] YDLidar-SDK and `ydlidar_ros2_driver` on the Pi (X3: verify port, baud, scan frequency)
+- [x] YDLidar-SDK and `ydlidar_ros2_driver` on the Pi (`scripts/setup_ydlidar_pi.sh`; `lidar.launch.py`; X3 on /dev/ydlidar, 115200 baud, `isSingleChannel: true`, /scan about 6.5 Hz, 620 points, even coverage over 360 degrees)
 - [ ] Verify X3 minimum range, blind spot, glass and dark-surface behavior
 - [ ] Mask the mast angular slice (`ignore_array` or laser_filters)
 - [~] URDF and TF tree for the real robot (`slam_robot_description`): the 3D-printed chassis meshes from the reference repo (Apache-2.0, credited in meshes/README.md) with 72 mm wheels 0.180 m apart on the motor mounts, the front caster only, IMU at the chassis mount, lidar 40 mm ahead of the axle at the chassis mount height; X3 0 deg direction (`laser_yaw`) to set by the box-in-front test
