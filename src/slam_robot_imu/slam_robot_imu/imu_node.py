@@ -6,7 +6,6 @@ waypoint, re-measures the gyro bias; publishing continues with the old bias mean
 """
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import qos_profile_sensor_data
 from sensor_msgs.msg import Imu
 from std_srvs.srv import Trigger
 
@@ -35,7 +34,8 @@ class ImuNode(Node):
         self.calibrating = True
         self.connected = False
         self.next_retry = 0.0
-        self.pub = self.create_publisher(Imu, p("topic"), qos_profile_sensor_data)
+        # reliable (depth 10): works for both reliable subscribers (robot_localization) and best-effort ones
+        self.pub = self.create_publisher(Imu, p("topic"), 10)
         self.create_service(Trigger, "~/calibrate", self._on_calibrate)
         self.create_timer(1.0 / float(p("rate_hz")), self._tick)
         self.get_logger().info("keep the robot still: calibrating the gyro")

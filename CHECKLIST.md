@@ -61,10 +61,10 @@ Last updated: 2026-11-18.
 
 ## 5. LiDAR, fusion, mapping
 - [x] YDLidar-SDK and `ydlidar_ros2_driver` on the Pi (`scripts/setup_ydlidar_pi.sh`; `lidar.launch.py`; X3 on /dev/ydlidar, 115200 baud, `isSingleChannel: true`, /scan about 6.5 Hz, 620 points, even coverage over 360 degrees)
-- [ ] Verify X3 minimum range, blind spot, glass and dark-surface behavior
+- [~] Verify X3 minimum range, blind spot, glass and dark-surface behavior: scan-plane check done (T3U antenna folded below the scan plane; it had blanked 15-20 and 40-50 deg). A fixed blind slice remains at about -157 deg (back right, 70-80% invalid in two robot orientations), probably a screw head next to the lidar; it gives invalid readings, not false points, so it is left unmasked. Corners, openings and far clutter cause the other invalid sectors. Glass and dark surfaces still to check
 - [ ] Mask the mast angular slice (`ignore_array` or laser_filters)
-- [~] URDF and TF tree for the real robot (`slam_robot_description`): the 3D-printed chassis meshes from the reference repo (Apache-2.0, credited in meshes/README.md) with 72 mm wheels 0.180 m apart on the motor mounts, the front caster only, IMU at the chassis mount, lidar 40 mm ahead of the axle at the chassis mount height; X3 0 deg direction (`laser_yaw`) to set by the box-in-front test
-- [ ] EKF (`robot_localization`) fusing odometry and IMU
+- [~] URDF and TF tree for the real robot (`slam_robot_description`): the 3D-printed chassis meshes from the reference repo (Apache-2.0, credited in meshes/README.md) with 72 mm wheels 0.180 m apart on the motor mounts, the front caster only, IMU at the chassis mount, lidar 40 mm ahead of the axle at the chassis mount height; X3 direction verified by the box test (box 50 cm ahead at 0 deg / 0.53 m, on the left at +90 deg), so `laser_yaw` stays 0
+- [~] EKF (`robot_localization`) fusing odometry and IMU: `ekf.yaml` (wheel vx/vy/yaw rate + gyro yaw rate, 2D) and `robot.launch.py` (base + IMU + lidar + EKF; diff_drive_controller leaves the odom TF to the EKF). Docker test with mock wheels and a fake gyro: EKF follows a 0.1 m/s, 0.5 rad/s arc (yaw 119 deg vs 115 commanded), only the EKF publishes odom -> base_footprint. imu_node now publishes reliable QoS so robot_localization receives it. Not yet run on the robot
 - [ ] `slam_toolbox` mapping run, map saved
 - [ ] Experiment 1 targets: wall RMSE at most 0.10 m, overlap at least 85%
 - [ ] Document that the X3 is the LiDAR used (the thesis text names the LD06)

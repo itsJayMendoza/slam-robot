@@ -1,0 +1,4 @@
+# Loaded after controllers.yaml when the EKF runs: the EKF publishes odom -> base_footprint instead.
+diff_drive_controller:
+  ros__parameters:
+    enable_odom_tf: false

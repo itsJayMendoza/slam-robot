@@ -7,7 +7,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="slam_robot">
   <xacro:arg name="use_mock" default="false"/>
   <xacro:arg name="port" default="/dev/esp32"/>
-  <!-- the X3's 0 deg direction is not verified yet: set by the box-in-front test -->
+  <!-- verified 0: with ydlidar_x3.yaml (reversion, inverted true) a box 50 cm ahead reads at 0 deg and
+       one on the left at +90 deg -->
   <xacro:arg name="laser_yaw" default="0.0"/>
 
   <xacro:property name="wheel_radius" value="0.036"/>       <!-- 72 mm wheels -->
