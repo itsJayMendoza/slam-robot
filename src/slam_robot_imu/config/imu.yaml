@@ -10,3 +10,4 @@ imu:
     dlpf: 3                    # on-chip low-pass filter, about 44 Hz
     calibration_samples: 200   # 2 s at 100 Hz, robot standing still
     max_still_gyro_std: 0.02   # rad/s; above this the robot is moving and calibration waits
+    gyro_z_scale: 0.980        # spin test with the lidar as reference: the chip reads yaw rate ~2% high

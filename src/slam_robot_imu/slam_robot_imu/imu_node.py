@@ -21,12 +21,14 @@ class ImuNode(Node):
         for name, default in [("i2c_bus", 1), ("address", 0x68), ("frame_id", "imu_link"),
                               ("topic", "imu/data_raw"), ("rate_hz", 100.0),
                               ("gyro_range_dps", 250), ("accel_range_g", 2), ("dlpf", 3),
-                              ("calibration_samples", 200), ("max_still_gyro_std", 0.02)]:
+                              ("calibration_samples", 200), ("max_still_gyro_std", 0.02),
+                              ("gyro_z_scale", 1.0)]:
             self.declare_parameter(name, default)
         p = lambda n: self.get_parameter(n).value  # noqa: E731
         self.frame_id = p("frame_id")
         self.n_cal = int(p("calibration_samples"))
         self.max_std = float(p("max_still_gyro_std"))
+        self.gyro_z_scale = float(p("gyro_z_scale"))
         self.dev = MPU6050(open_bus(int(p("i2c_bus"))), int(p("address")), int(p("gyro_range_dps")),
                            int(p("accel_range_g")), int(p("dlpf")), float(p("rate_hz")))
         self.cal = None
@@ -100,6 +102,7 @@ class ImuNode(Node):
         m.header.stamp, m.header.frame_id = stamp, self.frame_id
         m.orientation_covariance[0] = -1.0          # no orientation estimate in this message
         (m.angular_velocity.x, m.angular_velocity.y, m.angular_velocity.z) = s.gyro
+        m.angular_velocity.z *= self.gyro_z_scale   # chip scale error, from the lidar-referenced spin test
         (m.linear_acceleration.x, m.linear_acceleration.y, m.linear_acceleration.z) = s.accel
         for i in range(3):
             m.angular_velocity_covariance[4 * i] = self.cal.gyro_var[i]
